@@ -13,6 +13,7 @@ export default function useProfile(uid) {
       setUserProfile([])
     } else if (localCache[uid]) {
       setUserProfile(localCache[uid]["profile"])
+      setUserRepos(localCache[uid]["repos"])
     } else {
       requestUserProfile()
     }
@@ -57,7 +58,8 @@ export default function useProfile(uid) {
           return response.json()
         })
         .then((repos) => {
-          setUserRepos(repos)
+          localCache[uid]["repos"] = repos || []
+          setUserRepos(localCache[uid]["repos"])
         })
         .catch((error) => {
           setStatus("error")

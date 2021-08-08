@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
 import Head from "next/head"
-import Image from "next/image"
 import styled, { css } from "styled-components"
+import * as style from '/styles/style'
+
+const Section = styled.section`
+  background-color: #fff;
+`
 
 const Page = () => {
   const router = useRouter()
@@ -13,7 +17,7 @@ const Page = () => {
   console.log(userRepos)
   return (
     <>
-      <section>
+      <Section>
         <h1>{userProfile.name}</h1>
         <p>{userProfile.bio}</p>
         <ul>
@@ -42,9 +46,9 @@ const Page = () => {
             <p>{userProfile.followers}</p>
           </li>
         </ul>
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <ul>
           {userRepos.map((repo)=>{
             return (
@@ -54,7 +58,7 @@ const Page = () => {
             )
           })}
         </ul>
-      </section>
+      </Section>
     </>
   )
 }
