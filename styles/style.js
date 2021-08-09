@@ -7,8 +7,11 @@ export const hsl = (color, lightness) => {
   let hs
 
   switch (color) {
-    case "navy":
+    case "neutral":
       hs = "220, 12%"
+      break;
+    case "navy":
+      hs = "220, 24%"
       break;
     case "grey":
       hs = "220, 8%"
@@ -61,3 +64,6 @@ export const textLetterSpacing = {
   normal: 0,
   loose: '0.025em',
 }
+
+
+// Elements

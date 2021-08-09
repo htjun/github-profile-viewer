@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 
 const GITHUB_PROFILE_BASE_URI = "https://api.github.com/users/"
+const ACCESS_TOKEN = process.env.NEXT_PUBLIC_GH_ACCESS_TOKEN
 const localCache = {}
 
 export default function useProfile(uid) {
@@ -22,7 +23,12 @@ export default function useProfile(uid) {
       setStatus("loading")
       localCache[uid] = {}
 
-      await fetch(`${GITHUB_PROFILE_BASE_URI}${uid}`)
+      await fetch(`${GITHUB_PROFILE_BASE_URI}${uid}`, {
+        method: "GET",
+        headers: {
+          Authorization: `token ${ACCESS_TOKEN}`,
+        },
+      })
         .then((response) => {
           if (response.ok) {
             setStatus("loaded")
@@ -48,7 +54,12 @@ export default function useProfile(uid) {
     }
 
     async function requestUserRepos(url) {
-      const repos = await fetch(url)
+      const repos = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `token ${ACCESS_TOKEN}`,
+        },
+      })
         .then((response) => {
           if (response.ok) {
             setStatus("loaded")
