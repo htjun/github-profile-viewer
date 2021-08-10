@@ -7,12 +7,22 @@ import Repos from "/src/components/Repos"
 import styled from "styled-components"
 import { Section } from "/styles/styled-elements"
 
-const GridLayout = styled.div`
-  display: grid;
-  grid-template-columns: minmax(360px, 1fr) 3fr;
-  max-width: 1080px;
+const Layout = styled.div`
+  display: flex;
+  align-items: flex-start;
+  max-width: 1120px;
   margin: 64px auto;
-  column-gap: 32px;
+
+  .section-bio {
+    max-width: 400px;
+    margin-right: 24px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .section-list {
+    flex-grow: 1;
+  }
 `
 
 const Page = () => {
@@ -25,13 +35,13 @@ const Page = () => {
 
   return (
     <>
-      <GridLayout>
+      <Layout>
         <Bio data={userProfile} />
-        <Section>
+        <Section className="section-list">
           <Tabs />
           <Repos data={userRepos} />
         </Section>
-      </GridLayout>
+      </Layout>
     </>
   )
 }
