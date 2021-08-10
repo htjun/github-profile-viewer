@@ -45,7 +45,7 @@ export default function useProfile(uid) {
           return profile.repos_url
         })
         .then((repos_url) => {
-          requestUserRepos(repos_url)
+          requestUserRepos(`${repos_url}?per_page=100`)
         })
         .catch((error) => {
           setStatus("error")
