@@ -3,7 +3,6 @@ import * as style from "/styles/style"
 
 const TabsWrapper = styled.ul`
   display: flex;
-  justify-content: space-around;
   padding: 0 24px;
   border-bottom: 1px solid ${style.hsl("grey", 96)};
 `
@@ -11,6 +10,7 @@ const TabsWrapper = styled.ul`
 const Tab = styled.li`
   display: flex;
   padding: 24px 0;
+  margin-right: 24px;
   align-items: baseline;
   cursor: pointer;
 
