@@ -5,7 +5,7 @@ import { Section } from "/styles/styled-elements"
 const BioListWrapper = styled.ul``
 
 const BioList = styled.li`
-  padding: 24px 32px;
+  padding: 20px 24px;
   border-bottom: 1px solid ${style.hsl("grey", 96)};
   font-size: ${style.fontSize.sm};
   color: ${style.hsl("neutral", 16)};
@@ -33,7 +33,7 @@ const BioList = styled.li`
     css`
       display: flex;
       align-items: center;
-      padding: 32px;
+      padding: 24px;
 
       img.avatar {
         width: 60px;
@@ -63,7 +63,7 @@ const BioList = styled.li`
     props.type === "footer" &&
     css`
       display: block;
-      padding: 32px;
+      padding: 24px;
       color: ${style.hsl("neutral", 48)};
     `}
 `
