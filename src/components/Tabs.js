@@ -19,6 +19,7 @@ const Tab = styled.li`
     font-weight: ${style.fontWeight.medium};
     color: ${style.hsl("neutral", 48)};
     margin-right: 8px;
+    transition: color 0.12s linear;
   }
 
   figure {
@@ -28,6 +29,17 @@ const Tab = styled.li`
     background-color: ${style.hsl("neutral", 96)};
     padding: 4px 12px;
     border-radius: 26px;
+    transition: background-color 0.12s linear;
+  }
+
+  :hover {
+    h2 {
+      color: ${style.hsl("neutral", 16)};
+    }
+
+    figure {
+      background-color: ${style.hsl("neutral", 92)};
+    }
   }
 `
 
