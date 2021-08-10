@@ -84,8 +84,13 @@ const Bio = (props) => {
     return year
   }
 
+  function numberFormatter(number) {
+    const formattedNumber = number ? number.toLocaleString("en-US") : number
+    return formattedNumber
+  }
+
   return (
-    <Section>
+    <Section className="section-bio">
       <BioListWrapper>
         <BioList type="header">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -120,11 +125,11 @@ const Bio = (props) => {
         </BioListContent>
         <BioListContent item={data.following}>
           <h3>Following</h3>
-          <p>{data.following}</p>
+          <p>{numberFormatter(data.following)}</p>
         </BioListContent>
         <BioListContent item={data.followers}>
           <h3>Followers</h3>
-          <p>{data.followers}</p>
+          <p>{numberFormatter(data.followers)}</p>
         </BioListContent>
         <BioListContent type="footer" item={data.created_at}>
           <p>GitHub member since {getCreatedYear(data.created_at)}</p>
