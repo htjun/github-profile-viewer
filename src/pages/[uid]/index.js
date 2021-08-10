@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
 import Bio from "/src/components/Bio"
+import Tabs from "/src/components/Tabs"
 import Repos from "/src/components/Repos"
 import styled from "styled-components"
 import { Section } from "/styles/styled-elements"
@@ -18,6 +19,7 @@ const Page = () => {
   const router = useRouter()
   const { uid } = router.query
   const [userProfile, userRepos, status] = useProfile(uid)
+  const [activeTab, setActiveTab] = useState()
   console.log(userProfile)
   console.log(userRepos)
 
@@ -26,6 +28,7 @@ const Page = () => {
       <GridLayout>
         <Bio data={userProfile} />
         <Section>
+          <Tabs />
           <Repos data={userRepos} />
         </Section>
       </GridLayout>
