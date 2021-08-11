@@ -10,6 +10,10 @@ const Repo = styled.li`
   justify-content: space-between;
   padding: 24px;
   border-bottom: 1px solid ${style.hsl("grey", 96)};
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 `
 
 const RepoInfo = styled.div`

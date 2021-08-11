@@ -10,6 +10,10 @@ const BioList = styled.li`
   font-size: ${style.fontSize.sm};
   color: ${style.hsl("neutral", 16)};
 
+  &:last-of-type {
+    border-bottom: none;
+  }
+
   ${(props) =>
     !props.type &&
     css`
