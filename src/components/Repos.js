@@ -53,12 +53,20 @@ const RepoDetails = styled.ul`
   li {
     margin-right: 24px;
     font-weight: ${style.fontWeight.medium};
+
+    &.repo-status {
+      border: 1px solid ${style.hsl('neutral', 84)};
+      padding: 4px 12px;
+      border-radius: 16px;
+      margin-top: -4px;
+      margin-bottom: -6px;
+    }
   }
 `
 
 const RepoDetailsContent = (props) => {
   if (props.item) {
-    return <li>{props.children}</li>
+    return <li className={props.className}>{props.children}</li>
   } else {
     return null
   }
@@ -113,8 +121,11 @@ const Repos = (props) => {
                 <RepoDetailsContent item={repo.language}>
                   <strong>{repo.language}</strong>
                 </RepoDetailsContent>
-                <RepoDetailsContent item={repo.fork}>
-                  Fork: <strong>{repo.fork}</strong>
+                <RepoDetailsContent item={repo.fork} className="repo-status">
+                  Forked
+                </RepoDetailsContent>
+                <RepoDetailsContent item={repo.archived} className="repo-status">
+                  Archived
                 </RepoDetailsContent>
                 <RepoDetailsContent item={repo.updated_at}>
                   Updated {dateFormatter(repo.updated_at)}
