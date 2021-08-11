@@ -1,7 +1,12 @@
 import TimeAgo from 'javascript-time-ago'
 import en from 'javascript-time-ago/locale/en'
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import * as style from "/styles/style"
+
+// SVGs
+import IconStar from '/src/images/icon_star.svg'
+import IconFork from '/src/images/icon_fork.svg'
+import IconWatch from '/src/images/icon_watch.svg'
 
 TimeAgo.addDefaultLocale(en)
 const timeAgo = new TimeAgo('en-US')
@@ -59,6 +64,31 @@ const RepoDetailsContent = (props) => {
   }
 }
 
+
+const RepoStats = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 140px;
+  padding: 2px 0 2px 16px;
+  border-left: 1px solid ${style.hsl('neutral', 92)};
+`
+
+const RepoStatsContent = styled.li`
+  display: flex;
+  align-items: center;
+  font-size: ${style.fontSize.xs};
+  color: ${style.hsl("neutral", 48)};
+
+  svg {
+    margin-right: 4px;
+  }
+
+  strong {
+    margin-right: 4px;
+  }
+`
+
 const Repos = (props) => {
   const { data } = props
 
@@ -83,26 +113,31 @@ const Repos = (props) => {
                 <RepoDetailsContent item={repo.language}>
                   <strong>{repo.language}</strong>
                 </RepoDetailsContent>
-                <RepoDetailsContent item={repo.stargazers_count}>
-                  <strong>{repo.stargazers_count}</strong> Stars
-                </RepoDetailsContent>
-                <RepoDetailsContent item={repo.forks_count}>
-                  <strong>{repo.forks_count}</strong> Forks
-                </RepoDetailsContent>
-                <RepoDetailsContent item={repo.watchers_count}>
-                  <strong>{repo.watchers_count}</strong> Watchers
-                </RepoDetailsContent>
                 <RepoDetailsContent item={repo.fork}>
                   Fork: <strong>{repo.fork}</strong>
                 </RepoDetailsContent>
                 <RepoDetailsContent item={repo.updated_at}>
-                  {repo.updated_at}
                   Updated {dateFormatter(repo.updated_at)}
                 </RepoDetailsContent>
               </RepoDetails>
             </RepoInfo>
-            <div className="repo-contributors">
-            </div>
+            <RepoStats>
+              <RepoStatsContent>
+                <IconStar />
+                <strong>{repo.stargazers_count}</strong>
+                <span>Stars</span>
+              </RepoStatsContent>
+              <RepoStatsContent>
+                <IconFork />
+                <strong>{repo.forks_count}</strong>
+                <span>Forks</span>
+              </RepoStatsContent>
+              <RepoStatsContent>
+                <IconWatch />
+                <strong>{repo.watchers_count}</strong>
+                <span>Watchers</span>
+              </RepoStatsContent>
+            </RepoStats>
           </Repo>
         )
       })}
