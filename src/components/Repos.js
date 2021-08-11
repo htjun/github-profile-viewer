@@ -1,5 +1,10 @@
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
+
+TimeAgo.addDefaultLocale(en)
+const timeAgo = new TimeAgo('en-US')
 
 const ReposWrapper = styled.ul`
 
@@ -61,6 +66,10 @@ const Repos = (props) => {
     return new Date(b.updated_at) - new Date(a.updated_at);
   });
 
+  function dateFormatter(date) {
+    return timeAgo.format(new Date(date))
+  }
+
   return (
     <ReposWrapper>
       {sortedData.map((repo) => {
@@ -88,6 +97,7 @@ const Repos = (props) => {
                 </RepoDetailsContent>
                 <RepoDetailsContent item={repo.updated_at}>
                   {repo.updated_at}
+                  Updated {dateFormatter(repo.updated_at)}
                 </RepoDetailsContent>
               </RepoDetails>
             </RepoInfo>
