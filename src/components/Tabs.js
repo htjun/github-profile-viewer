@@ -10,7 +10,7 @@ const TabsWrapper = styled.ul`
 const Tab = styled.li`
   display: flex;
   padding: 24px 0;
-  margin-right: 24px;
+  margin-right: 32px;
   align-items: baseline;
   cursor: pointer;
 
@@ -44,17 +44,17 @@ const Tab = styled.li`
 `
 
 const Tabs = (props) => {
-  const { data } = props
+  const { repoCount } = props
 
   return (
     <TabsWrapper>
       <Tab>
         <h2>Repositories</h2>
-        <figure>00</figure>
+        <figure>{repoCount}</figure>
       </Tab>
       <Tab>
         <h2>Subscriptions</h2>
-        <figure>48</figure>
+        <figure>00</figure>
       </Tab>
       <Tab>
         <h2>Recieved events</h2>

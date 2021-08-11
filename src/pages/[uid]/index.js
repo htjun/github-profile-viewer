@@ -14,6 +14,7 @@ const Layout = styled.div`
   margin: 64px auto;
 
   .section-bio {
+    min-width: 320px;
     max-width: 400px;
     margin-right: 24px;
     position: sticky;
@@ -33,12 +34,14 @@ const Page = () => {
   console.log(userProfile)
   console.log(userRepos)
 
+  const repoCount = userRepos.length
+
   return (
     <>
       <Layout>
         <Bio data={userProfile} />
         <Section className="section-list">
-          <Tabs />
+          <Tabs repoCount={repoCount} />
           <Repos data={userRepos} />
         </Section>
       </Layout>
