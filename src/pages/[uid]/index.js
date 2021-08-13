@@ -30,9 +30,6 @@ const Page = () => {
   const router = useRouter()
   const { uid } = router.query
   const [userProfile, userRepos, status] = useProfile(uid)
-  const [activeTab, setActiveTab] = useState()
-  console.log(userProfile)
-  console.log(userRepos)
 
   const repoCount = userRepos.length
 
