@@ -64,14 +64,19 @@ const RepoDetails = styled.ul`
   }
 `
 
-const RepoDetailsContent = (props) => {
-  if (props.item) {
-    return <li className={props.className}>{props.children}</li>
+const FlexTag = styled.div``
+
+const ConditionalDisplay = (props) => {
+  const { tag, item, className } = props
+
+  if (item) {
+    return (
+      <FlexTag as={tag} className={className}>{props.children}</FlexTag>
+    )
   } else {
     return null
   }
 }
-
 
 const RepoStats = styled.ul`
   display: flex;
@@ -115,21 +120,24 @@ const Repos = (props) => {
           <Repo key={repo.id}>
             <RepoInfo>
               <h4>{repo.name}</h4>
-              <p>{repo.description}</p>
+              {/* <p>{repo.description}</p> */}
+              <ConditionalDisplay tag="p" item={repo.description}>
+                {repo.description}
+              </ConditionalDisplay>
 
               <RepoDetails>
-                <RepoDetailsContent item={repo.language}>
+                <ConditionalDisplay tag="li" item={repo.language}>
                   <strong>{repo.language}</strong>
-                </RepoDetailsContent>
-                <RepoDetailsContent item={repo.fork} className="repo-status">
+                </ConditionalDisplay>
+                <ConditionalDisplay tag="li" item={repo.fork} className="repo-status">
                   Forked
-                </RepoDetailsContent>
-                <RepoDetailsContent item={repo.archived} className="repo-status">
+                </ConditionalDisplay>
+                <ConditionalDisplay tag="li" item={repo.archived} className="repo-status">
                   Archived
-                </RepoDetailsContent>
-                <RepoDetailsContent item={repo.updated_at}>
+                </ConditionalDisplay>
+                <ConditionalDisplay tag="li" item={repo.updated_at}>
                   Updated {dateFormatter(repo.updated_at)}
-                </RepoDetailsContent>
+                </ConditionalDisplay>
               </RepoDetails>
             </RepoInfo>
             <RepoStats>
