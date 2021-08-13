@@ -1,12 +1,39 @@
+import { useState } from "react"
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
+import { InputText, Button } from "/styles/styled-elements"
+import Checkbox from "/src/components/Checkbox"
 
-const FilterBarWrapper = styled.ul`
+import IconFilter from "/src/images/icon_filter.svg"
+
+const FilterBarWrapper = styled.div``
+
+const FilterTopWrapper = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
-  border-bottom: 1px solid ${style.hsl("grey", 96)};
+`
+
+const FilterBottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+
+  & > div {
+    display: flex;
+  }
+
+  h5 {
+    font-size: ${style.fontSize.sm};
+    font-weight: ${style.fontWeight.medium};
+    color: ${style.hsl("neutral", 48)};
+  }
+
+  label {
+    margin-left: 24px;
+  }
 `
 
 const Title = styled.li`
@@ -34,36 +61,53 @@ const Title = styled.li`
   }
 `
 
-const SearchInput = styled.input`
+const SearchInput = styled(InputText)`
   width: 240px;
-  height: 36px;
-  padding: 4px 12px;
-  font-size: ${style.fontSize.sm};
-  border: 1px solid ${style.hsl("neutral", 84)};
-  border-radius: 4px;
-  box-shadow: 0 1px 3px -1px ${style.hsl("neutral", 92)};
-  transition: all 0.08s linear;
+  margin-right: 32px;
+`
 
-  &:hover {
-    border-color: ${style.hsl("neutral", 72)};
-  }
-
-  &:focus {
-    border-color: ${style.hsl("blue", 64)};
-    box-shadow: 0 0 0 1px ${style.hsl("blue", 64)};
-  }
+const FilterDivider = styled.hr`
+  border-color: ${style.hsl("grey", 92)};
 `
 
 const FilterBar = (props) => {
   const { repoCount } = props
+  const [forkedChecked, setForkedChecked] = useState(false)
+  const [archivedChecked, setArchivedChecked] = useState(false)
 
   return (
     <FilterBarWrapper>
-      <Title>
-        <h2>Public Repositories</h2>
-        <figure>{repoCount}</figure>
-      </Title>
-      <SearchInput type="text" placeholder="Search.." />
+      <FilterTopWrapper>
+        <Title>
+          <h2>Public Repositories</h2>
+          <figure>{repoCount}</figure>
+        </Title>
+        <Button>
+          Filters
+          <IconFilter />
+        </Button>
+      </FilterTopWrapper>
+      <FilterBottomWrapper>
+        <SearchInput type="text" placeholder="Search.." />
+        <div>
+          <h5>Includes:</h5>
+          <Checkbox
+            value={forkedChecked}
+            onChange={() => setForkedChecked(!forkedChecked)}
+            checked={forkedChecked ? "checked" : null}
+          >
+            Forked
+          </Checkbox>
+          <Checkbox
+            value={archivedChecked}
+            onChange={() => setArchivedChecked(!archivedChecked)}
+            checked={archivedChecked ? "checked" : null}
+          >
+            Archived
+          </Checkbox>
+        </div>
+      </FilterBottomWrapper>
+      <FilterDivider />
     </FilterBarWrapper>
   )
 }
