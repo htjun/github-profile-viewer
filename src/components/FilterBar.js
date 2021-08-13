@@ -50,7 +50,7 @@ const SearchInput = styled.input`
 
   &:focus {
     border-color: ${style.hsl("blue", 64)};
-    box-shadow: 0 0 0 2px ${style.hsl("blue", 64)};
+    box-shadow: 0 0 0 1px ${style.hsl("blue", 64)};
   }
 `
 

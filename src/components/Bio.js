@@ -18,11 +18,15 @@ const BioList = styled.li`
     !props.type &&
     css`
       display: grid;
-      grid-template-columns: minmax(120px, 1fr) 2fr;
+      grid-template-columns: minmax(100px, 1fr) 2fr;
 
       h3 {
         font-weight: ${style.fontWeight.semibold};
         color: ${style.hsl("neutral", 64)};
+      }
+
+      p {
+        word-wrap: anywhere;
       }
     `}
 
