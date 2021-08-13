@@ -139,6 +139,14 @@ const Bio = (props) => {
           <h3>Followers</h3>
           <p>{numberFormatter(data.followers)}</p>
         </BioListContent>
+        <BioListContent item={data.public_repos}>
+          <h3>Repos</h3>
+          <p>{numberFormatter(data.public_repos)}</p>
+        </BioListContent>
+        <BioListContent item={data.public_gists}>
+          <h3>Gists</h3>
+          <p>{numberFormatter(data.public_gists)}</p>
+        </BioListContent>
         <BioListContent type="footer" item={data.created_at}>
           <p>GitHub member since {getCreatedYear(data.created_at)}</p>
         </BioListContent>
