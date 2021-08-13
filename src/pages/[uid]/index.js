@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
 import Bio from "/src/components/Bio"
-import Tabs from "/src/components/Tabs"
+import FilterBar from "/src/components/FilterBar"
 import Repos from "/src/components/Repos"
 import styled from "styled-components"
 import { Section } from "/styles/styled-elements"
@@ -41,7 +41,7 @@ const Page = () => {
       <Layout>
         <Bio data={userProfile} />
         <Section className="section-list">
-          <Tabs repoCount={repoCount} />
+          <FilterBar repoCount={repoCount} />
           <Repos data={userRepos} />
         </Section>
       </Layout>

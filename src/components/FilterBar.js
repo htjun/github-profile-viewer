@@ -1,18 +1,19 @@
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 
-const TabsWrapper = styled.ul`
+const FilterBarWrapper = styled.ul`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 24px;
   border-bottom: 1px solid ${style.hsl("grey", 96)};
 `
 
-const Tab = styled.li`
+const Title = styled.li`
   display: flex;
   padding: 24px 0;
   margin-right: 32px;
   align-items: baseline;
-  cursor: pointer;
 
   h2 {
     font-size: ${style.fontSize.sm};
@@ -31,30 +32,40 @@ const Tab = styled.li`
     border-radius: 26px;
     transition: background-color 0.12s linear;
   }
+`
 
-  :hover {
-    h2 {
-      color: ${style.hsl("neutral", 16)};
-    }
+const SearchInput = styled.input`
+  width: 240px;
+  height: 36px;
+  padding: 4px 12px;
+  font-size: ${style.fontSize.sm};
+  border: 1px solid ${style.hsl("neutral", 84)};
+  border-radius: 4px;
+  box-shadow: 0 1px 3px -1px ${style.hsl("neutral", 92)};
+  transition: all 0.08s linear;
 
-    figure {
-      background-color: ${style.hsl("neutral", 92)};
-    }
+  &:hover {
+    border-color: ${style.hsl("neutral", 72)};
+  }
+
+  &:focus {
+    border-color: ${style.hsl("blue", 64)};
+    box-shadow: 0 0 0 2px ${style.hsl("blue", 64)};
   }
 `
 
-const Tabs = (props) => {
+const FilterBar = (props) => {
   const { repoCount } = props
 
   return (
-    <TabsWrapper>
-      <Tab>
+    <FilterBarWrapper>
+      <Title>
         <h2>Repositories</h2>
         <figure>{repoCount}</figure>
-      </Tab>
-
-    </TabsWrapper>
+      </Title>
+      <SearchInput type="text" placeholder="Search.." />
+    </FilterBarWrapper>
   )
 }
 
-export default Tabs
+export default FilterBar
