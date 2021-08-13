@@ -60,7 +60,7 @@ const FilterBar = (props) => {
   return (
     <FilterBarWrapper>
       <Title>
-        <h2>Repositories</h2>
+        <h2>Public Repositories</h2>
         <figure>{repoCount}</figure>
       </Title>
       <SearchInput type="text" placeholder="Search.." />
