@@ -87,6 +87,9 @@ const FilterBar = (props) => {
     })
     .filter((r) => {
       return archivedDisplay ? true : !r.archived
+    })
+    .filter((r) => {
+      return r.name.search(searchTerm) != -1
     }).length
 
   return (
