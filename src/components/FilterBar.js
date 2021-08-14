@@ -62,7 +62,8 @@ const Title = styled.li`
 `
 
 const SearchInput = styled(InputText)`
-  width: 240px;
+  width: 100%;
+  max-width: 320px;
   margin-right: 32px;
 `
 
@@ -100,7 +101,7 @@ const FilterBar = (props) => {
           <figure>{repoCount}</figure>
         </Title>
         <Button>
-          Filters
+          Sort
           <IconFilter />
         </Button>
       </FilterTopWrapper>
