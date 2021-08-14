@@ -18,6 +18,7 @@ export default function useProfile(uid) {
     } else {
       requestUserProfile()
     }
+
     async function requestUserProfile() {
       setUserProfile([])
       setStatus("loading")
@@ -42,10 +43,11 @@ export default function useProfile(uid) {
           localCache[uid]["profile"] = profile || []
           setUserProfile(localCache[uid]["profile"])
 
-          return profile.repos_url
+          return profile
         })
-        .then((repos_url) => {
-          requestUserRepos(`${repos_url}?per_page=100`)
+        .then((profile) => {
+          const repoPages = Math.ceil(profile.public_repos / 100)
+          requestUserRepos(profile.repos_url, repoPages)
         })
         .catch((error) => {
           setStatus("error")
@@ -53,20 +55,29 @@ export default function useProfile(uid) {
         })
     }
 
-    async function requestUserRepos(url) {
-      const repos = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `token ${ACCESS_TOKEN}`,
-        },
-      })
+    async function requestUserRepos(url, count) {
+      // Multiple fetches
+      const fetchResponses = []
+
+      for (let i = 0; i < count; i++) {
+        fetchResponses[i] = await fetch(`${url}?per_page=100&page=${i + 1}`, {
+          method: "GET",
+          headers: {
+            Authorization: `token ${ACCESS_TOKEN}`,
+          },
+        }).then((response) => {
+          return response.json()
+        })
+      }
+
+      Promise.all(fetchResponses.flat())
         .then((response) => {
           if (response.ok) {
             setStatus("loaded")
           } else {
             setStatus("error")
           }
-          return response.json()
+          return response
         })
         .then((repos) => {
           localCache[uid]["repos"] = repos || []
