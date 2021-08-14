@@ -10,12 +10,12 @@ import { Section } from "/styles/styled-elements"
 const Layout = styled.div`
   display: flex;
   align-items: flex-start;
-  max-width: 1120px;
+  max-width: 1140px;
   margin: 64px auto;
 
   .section-bio {
-    min-width: 320px;
-    max-width: 400px;
+    width: 340px;
+    flex-shrink: 0;
     margin-right: 24px;
     position: sticky;
     top: 24px;
