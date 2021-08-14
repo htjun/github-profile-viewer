@@ -56,7 +56,6 @@ export default function useProfile(uid) {
     }
 
     async function requestUserRepos(url, count) {
-      // Multiple fetches
       const fetchResponses = []
 
       for (let i = 0; i < count; i++) {
