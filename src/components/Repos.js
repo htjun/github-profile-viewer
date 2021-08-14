@@ -103,7 +103,7 @@ const RepoStatsContent = styled.li`
 `
 
 const Repos = (props) => {
-  const { data } = props
+  const { data, forkedDisplay, archivedDisplay } = props
 
   const sortedData = data.sort(function(a, b){
     return new Date(b.updated_at) - new Date(a.updated_at);
@@ -115,12 +115,15 @@ const Repos = (props) => {
 
   return (
     <ReposWrapper>
-      {sortedData.map((repo) => {
+      {sortedData.filter((r)=> {
+        return forkedDisplay ? true : !r.fork
+      }).filter((r)=> {
+        return archivedDisplay ? true : !r.archived
+      }).map((repo) => {
         return (
           <Repo key={repo.id}>
             <RepoInfo>
               <h4>{repo.name}</h4>
-              {/* <p>{repo.description}</p> */}
               <ConditionalDisplay tag="p" item={repo.description}>
                 {repo.description}
               </ConditionalDisplay>

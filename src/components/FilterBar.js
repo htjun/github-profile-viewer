@@ -71,9 +71,21 @@ const FilterDivider = styled.hr`
 `
 
 const FilterBar = (props) => {
-  const { repoCount } = props
-  const [forkedChecked, setForkedChecked] = useState(true)
-  const [archivedChecked, setArchivedChecked] = useState(true)
+  const {
+    data,
+    forkedDisplay,
+    setForkedDisplay,
+    archivedDisplay,
+    setArchivedDisplay,
+  } = props
+
+  const repoCount = data
+    .filter((r) => {
+      return forkedDisplay ? true : !r.fork
+    })
+    .filter((r) => {
+      return archivedDisplay ? true : !r.archived
+    }).length
 
   return (
     <FilterBarWrapper>
@@ -92,16 +104,16 @@ const FilterBar = (props) => {
         <div>
           <h5>Includes:</h5>
           <Checkbox
-            value={forkedChecked}
-            onChange={() => setForkedChecked(!forkedChecked)}
-            checked={forkedChecked}
+            value={forkedDisplay}
+            onChange={() => setForkedDisplay(!forkedDisplay)}
+            checked={forkedDisplay}
           >
             Forked
           </Checkbox>
           <Checkbox
-            value={archivedChecked}
-            onChange={() => setArchivedChecked(!archivedChecked)}
-            checked={archivedChecked}
+            value={archivedDisplay}
+            onChange={() => setArchivedDisplay(!archivedDisplay)}
+            checked={archivedDisplay}
           >
             Archived
           </Checkbox>

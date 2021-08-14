@@ -30,16 +30,26 @@ const Page = () => {
   const router = useRouter()
   const { uid } = router.query
   const [userProfile, userRepos, status] = useProfile(uid)
-
-  const repoCount = userRepos.length
+  const [forkedDisplay, setForkedDisplay] = useState(true)
+  const [archivedDisplay, setArchivedDisplay] = useState(true)
 
   return (
     <>
       <Layout>
         <Bio data={userProfile} />
         <Section className="section-list">
-          <FilterBar repoCount={repoCount} />
-          <Repos data={userRepos} />
+          <FilterBar
+            data={userRepos}
+            forkedDisplay={forkedDisplay}
+            setForkedDisplay={setForkedDisplay}
+            archivedDisplay={archivedDisplay}
+            setArchivedDisplay={setArchivedDisplay}
+          />
+          <Repos
+            data={userRepos}
+            forkedDisplay={forkedDisplay}
+            archivedDisplay={archivedDisplay}
+          />
         </Section>
       </Layout>
     </>
