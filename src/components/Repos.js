@@ -136,7 +136,7 @@ const Repos = (props) => {
           return archivedDisplay ? true : !r.archived
         })
         .filter((r) => {
-          return r.name.search(searchTerm) != -1
+          return r.name.toLowerCase().search(searchTerm.toLowerCase()) != -1
         })
         .map((repo) => {
           return (
