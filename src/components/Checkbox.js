@@ -52,7 +52,7 @@ const Checkbox = (props) => {
 
   return (
     <CheckboxWrapper>
-      <CheckboxInput type="checkbox" value={props.value} onChange={props.onChange} />
+      <CheckboxInput type="checkbox" value={props.value} onChange={props.onChange} checked={props.checked} />
       <CheckboxLabel>{props.children}</CheckboxLabel>
     </CheckboxWrapper>
   )

@@ -72,8 +72,8 @@ const FilterDivider = styled.hr`
 
 const FilterBar = (props) => {
   const { repoCount } = props
-  const [forkedChecked, setForkedChecked] = useState(false)
-  const [archivedChecked, setArchivedChecked] = useState(false)
+  const [forkedChecked, setForkedChecked] = useState(true)
+  const [archivedChecked, setArchivedChecked] = useState(true)
 
   return (
     <FilterBarWrapper>
@@ -94,14 +94,14 @@ const FilterBar = (props) => {
           <Checkbox
             value={forkedChecked}
             onChange={() => setForkedChecked(!forkedChecked)}
-            checked={forkedChecked ? "checked" : null}
+            checked={forkedChecked}
           >
             Forked
           </Checkbox>
           <Checkbox
             value={archivedChecked}
             onChange={() => setArchivedChecked(!archivedChecked)}
-            checked={archivedChecked ? "checked" : null}
+            checked={archivedChecked}
           >
             Archived
           </Checkbox>
