@@ -103,7 +103,7 @@ const RepoStatsContent = styled.li`
 `
 
 const Repos = (props) => {
-  const { data, forkedDisplay, archivedDisplay } = props
+  const { data, forkedDisplay, archivedDisplay, searchTerm } = props
 
   const sortedData = data.sort(function(a, b){
     return new Date(b.updated_at) - new Date(a.updated_at);
@@ -119,6 +119,8 @@ const Repos = (props) => {
         return forkedDisplay ? true : !r.fork
       }).filter((r)=> {
         return archivedDisplay ? true : !r.archived
+      }).filter((r)=> {
+        return r.name.search(searchTerm) != -1;
       }).map((repo) => {
         return (
           <Repo key={repo.id}>

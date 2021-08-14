@@ -32,6 +32,7 @@ const Page = () => {
   const [userProfile, userRepos, status] = useProfile(uid)
   const [forkedDisplay, setForkedDisplay] = useState(true)
   const [archivedDisplay, setArchivedDisplay] = useState(true)
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <>
@@ -44,11 +45,14 @@ const Page = () => {
             setForkedDisplay={setForkedDisplay}
             archivedDisplay={archivedDisplay}
             setArchivedDisplay={setArchivedDisplay}
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
           />
           <Repos
             data={userRepos}
             forkedDisplay={forkedDisplay}
             archivedDisplay={archivedDisplay}
+            searchTerm={searchTerm}
           />
         </Section>
       </Layout>

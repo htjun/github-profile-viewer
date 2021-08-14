@@ -77,6 +77,8 @@ const FilterBar = (props) => {
     setForkedDisplay,
     archivedDisplay,
     setArchivedDisplay,
+    searchTerm,
+    setSearchTerm,
   } = props
 
   const repoCount = data
@@ -100,7 +102,14 @@ const FilterBar = (props) => {
         </Button>
       </FilterTopWrapper>
       <FilterBottomWrapper>
-        <SearchInput type="text" placeholder="Search.." />
+        <SearchInput
+          type="text"
+          placeholder="Search.."
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value)
+          }}
+        />
         <div>
           <h5>Includes:</h5>
           <Checkbox
