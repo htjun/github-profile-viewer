@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import styled, { css } from "styled-components"
 import { Button } from "/styles/styled-elements"
 import * as style from "/styles/style"
@@ -13,10 +13,10 @@ const DropdownWrapper = styled.div`
 
 const DropdownButton = styled(Button)`
   font-weight: ${style.fontWeight.regular};
-  color: ${style.hsl('neutral', 32)};
+  color: ${style.hsl("neutral", 32)};
 
   &:hover {
-    color: ${style.hsl('neutral', 12)};
+    color: ${style.hsl("neutral", 12)};
   }
 
   span {
@@ -32,7 +32,8 @@ const DropdownMenu = styled.ul`
   min-width: 200px;
   border: 1px solid ${style.hsl("neutral", 88)};
   border-radius: 6px;
-  box-shadow: 0 10px 15px -3px rgba(110, 130, 180, 0.2), 0 4px 6px -2px rgba(110, 130, 180, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(110, 130, 180, 0.2),
+    0 4px 6px -2px rgba(110, 130, 180, 0.1);
 `
 
 const DropdownMenuItem = styled.li`
@@ -53,6 +54,24 @@ const DropdownMenuItem = styled.li`
 const Dropdown = (props) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const { menuItems, sortBy, setSortBy } = props
+  const node = useRef()
+
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return
+    }
+    // outside click
+    setMenuOpen(false)
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClick)
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick)
+    }
+  }, [])
 
   const handleDropdownItemClick = (e) => {
     e.preventDefault()
@@ -61,29 +80,34 @@ const Dropdown = (props) => {
   }
 
   const getSortStatus = () => {
-    const item = menuItems.find(item => item.slug === sortBy)
+    const item = menuItems.find((item) => item.slug === sortBy)
     return item.label
   }
 
   return (
-    <DropdownWrapper>
+    <DropdownWrapper ref={node}>
       <DropdownButton onClick={() => setMenuOpen(!menuOpen)}>
-          <span>Sort by:</span>
-          <strong>{getSortStatus()}</strong>
+        <span>Sort by:</span>
+        <strong>{getSortStatus()}</strong>
         <IconChevronDown />
       </DropdownButton>
-      {
-        menuOpen &&
+      {menuOpen && (
         <DropdownMenu>
           {menuItems.map((item, index) => {
             return (
               <DropdownMenuItem key={item.slug}>
-                <a href="#" data-slug={item.slug} onClick={handleDropdownItemClick}>{item.label}</a>
+                <a
+                  href="#"
+                  data-slug={item.slug}
+                  onClick={handleDropdownItemClick}
+                >
+                  {item.label}
+                </a>
               </DropdownMenuItem>
             )
           })}
         </DropdownMenu>
-      }
+      )}
     </DropdownWrapper>
   )
 }
