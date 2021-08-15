@@ -1,10 +1,9 @@
 import { useState } from "react"
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
-import { InputText, Button } from "/styles/styled-elements"
+import { InputText } from "/styles/styled-elements"
+import Dropdown from "/src/components/Dropdown"
 import Checkbox from "/src/components/Checkbox"
-
-import IconFilter from "/src/images/icon_filter.svg"
 
 const FilterBarWrapper = styled.div``
 
@@ -82,6 +81,8 @@ const FilterBar = (props) => {
     setSearchTerm,
   } = props
 
+  const dropdownMenus = ["update", "stars", "forks", "watchers", "language"]
+
   const repoCount = data
     .filter((r) => {
       return forkedDisplay ? true : !r.fork
@@ -100,10 +101,10 @@ const FilterBar = (props) => {
           <h2>Public Repositories</h2>
           <figure>{repoCount}</figure>
         </Title>
-        <Button>
-          Sort
-          <IconFilter />
-        </Button>
+        <Dropdown menuItems={dropdownMenus}>
+          <span>Sort by:</span>
+          <strong>Update</strong>
+        </Dropdown>
       </FilterTopWrapper>
       <FilterBottomWrapper>
         <SearchInput

@@ -30,6 +30,7 @@ const Page = () => {
   const router = useRouter()
   const { uid } = router.query
   const [userProfile, userRepos, status] = useProfile(uid)
+  const [sortBy, setSortBy] = useState("update")
   const [forkedDisplay, setForkedDisplay] = useState(true)
   const [archivedDisplay, setArchivedDisplay] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
@@ -41,6 +42,8 @@ const Page = () => {
         <Section className="section-list">
           <FilterBar
             data={userRepos}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
             forkedDisplay={forkedDisplay}
             setForkedDisplay={setForkedDisplay}
             archivedDisplay={archivedDisplay}
@@ -50,6 +53,7 @@ const Page = () => {
           />
           <Repos
             data={userRepos}
+            sortBy={sortBy}
             forkedDisplay={forkedDisplay}
             archivedDisplay={archivedDisplay}
             searchTerm={searchTerm}
