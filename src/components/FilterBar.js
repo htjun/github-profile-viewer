@@ -89,7 +89,6 @@ const FilterBar = (props) => {
     { slug: "stargazers_count", label: "Stars" },
     { slug: "forks_count", label: "Forks" },
     { slug: "watchers", label: "Watchers" },
-    { slug: "language", label: "Language" },
   ]
 
   const repoCount = data
@@ -126,7 +125,7 @@ const FilterBar = (props) => {
           }}
         />
         <div>
-          <h5>Includes:</h5>
+          <h5>Include:</h5>
           <Checkbox
             value={forkedDisplay}
             onChange={() => setForkedDisplay(!forkedDisplay)}
