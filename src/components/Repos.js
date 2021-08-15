@@ -116,10 +116,31 @@ const RepoStatsContent = styled.li`
 `
 
 const Repos = (props) => {
-  const { data, forkedDisplay, archivedDisplay, searchTerm } = props
+  const { data, sortBy, forkedDisplay, archivedDisplay, searchTerm } = props
 
   const sortedData = data.sort(function (a, b) {
-    return new Date(b.updated_at) - new Date(a.updated_at)
+    let result = null
+
+    switch (sortBy) {
+      case "updated_at":
+        result = new Date(b.updated_at) - new Date(a.updated_at)
+        break
+      case "created_at":
+        result = new Date(b.created_at) - new Date(a.created_at)
+        break
+      case "stargazers_count":
+        result = b.stargazers_count - a.stargazers_count
+        break
+      case "forks_count":
+        result = b.forks_count - a.forks_count
+        break
+      case "watchers":
+        result = b.watchers - a.watchers
+        break
+      default:
+        break
+    }
+    return result
   })
 
   function dateFormatter(date) {

@@ -54,14 +54,22 @@ const Dropdown = (props) => {
   const [menuOpen, setMenuOpen] = useState(false)
   const { menuItems, sortBy, setSortBy } = props
 
-  const Capitalize = (word) => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
+  const handleDropdownItemClick = (e) => {
+    e.preventDefault()
+    setSortBy(e.target.dataset.slug)
+    setMenuOpen(false)
+  }
+
+  const getSortStatus = () => {
+    const item = menuItems.find(item => item.slug === sortBy)
+    return item.label
   }
 
   return (
     <DropdownWrapper>
       <DropdownButton onClick={() => setMenuOpen(!menuOpen)}>
-        {props.children}
+          <span>Sort by:</span>
+          <strong>{getSortStatus()}</strong>
         <IconChevronDown />
       </DropdownButton>
       {
@@ -69,8 +77,8 @@ const Dropdown = (props) => {
         <DropdownMenu>
           {menuItems.map((item, index) => {
             return (
-              <DropdownMenuItem key={index}>
-                <a href="#">{Capitalize(item)}</a>
+              <DropdownMenuItem key={item.slug}>
+                <a href="#" data-slug={item.slug} onClick={handleDropdownItemClick}>{item.label}</a>
               </DropdownMenuItem>
             )
           })}

@@ -30,7 +30,7 @@ const Page = () => {
   const router = useRouter()
   const { uid } = router.query
   const [userProfile, userRepos, status] = useProfile(uid)
-  const [sortBy, setSortBy] = useState("update")
+  const [sortBy, setSortBy] = useState("updated_at")
   const [forkedDisplay, setForkedDisplay] = useState(true)
   const [archivedDisplay, setArchivedDisplay] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")

@@ -73,6 +73,8 @@ const FilterDivider = styled.hr`
 const FilterBar = (props) => {
   const {
     data,
+    sortBy,
+    setSortBy,
     forkedDisplay,
     setForkedDisplay,
     archivedDisplay,
@@ -81,7 +83,14 @@ const FilterBar = (props) => {
     setSearchTerm,
   } = props
 
-  const dropdownMenus = ["update", "stars", "forks", "watchers", "language"]
+  const dropdownMenus = [
+    { slug: "updated_at", label: "Update" },
+    { slug: "created_at", label: "Create" },
+    { slug: "stargazers_count", label: "Stars" },
+    { slug: "forks_count", label: "Forks" },
+    { slug: "watchers", label: "Watchers" },
+    { slug: "language", label: "Language" },
+  ]
 
   const repoCount = data
     .filter((r) => {
@@ -101,10 +110,11 @@ const FilterBar = (props) => {
           <h2>Public Repositories</h2>
           <figure>{repoCount}</figure>
         </Title>
-        <Dropdown menuItems={dropdownMenus}>
-          <span>Sort by:</span>
-          <strong>Update</strong>
-        </Dropdown>
+        <Dropdown
+          menuItems={dropdownMenus}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+        />
       </FilterTopWrapper>
       <FilterBottomWrapper>
         <SearchInput
