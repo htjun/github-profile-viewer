@@ -9,6 +9,7 @@ const BioList = styled.li`
   border-bottom: 1px solid ${style.hsl("grey", 96)};
   font-size: ${style.fontSize.sm};
   color: ${style.hsl("neutral", 16)};
+  word-wrap: anywhere;
 
   &:last-of-type {
     border-bottom: none;
@@ -23,10 +24,6 @@ const BioList = styled.li`
       h3 {
         font-weight: ${style.fontWeight.semibold};
         color: ${style.hsl("neutral", 64)};
-      }
-
-      p {
-        word-wrap: anywhere;
       }
     `}
 
@@ -55,8 +52,9 @@ const BioList = styled.li`
           font-size: ${style.fontSize.xl};
           font-weight: ${style.fontWeight.semibold};
           letter-spacing: ${style.textLetterSpacing.tight};
-          line-height: ${style.textLineHeight.normal};
+          line-height: ${style.textLineHeight.tight};
           color: ${style.hsl("neutral", 12)};
+          margin: 4px 0;
         }
 
         p {
