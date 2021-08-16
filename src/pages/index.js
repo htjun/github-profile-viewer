@@ -51,9 +51,18 @@ const IntroCopy = styled.h2`
 `
 
 const IntroForms = styled.form`
-  display: flex;
   max-width: 480px;
   margin-bottom: 96px;
+
+  &.error {
+    .username {
+      box-shadow: 0 0 0 2px red;
+    }
+  }
+`
+
+const IntroFormGroup = styled.fieldset`
+  display: flex;
 
   @media ${style.deviceSize.mobile} {
     flex-direction: column;
@@ -123,9 +132,24 @@ const IntroButton = styled.input`
     }
   }
 
+  &.disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
   @media ${style.deviceSize.mobile} {
     width: 100%;
   }
+`
+
+const IntroErrorMessage = styled.p`
+  color: red;
+  margin-top: 8px;
+  font-weight: ${style.fontWeight.medium};
 `
 
 const Credit = styled.cite`
@@ -137,11 +161,37 @@ const Credit = styled.cite`
 export default function Home() {
   const router = useRouter()
   const [userId, setUserId] = useState("")
+  const [formError, setFormError] = useState(false)
+
+  const GITHUB_PROFILE_BASE_URI = "https://api.github.com/users/"
+  const ACCESS_TOKEN = process.env.NEXT_PUBLIC_GH_ACCESS_TOKEN
+
+  async function getProfile() {
+    await fetch(`${GITHUB_PROFILE_BASE_URI}${userId}`, {
+      method: "GET",
+      headers: {
+        Authorization: `token ${ACCESS_TOKEN}`,
+      },
+    }).then((response) => {
+      if (response.ok) {
+        setFormError(false)
+        router.push(`/${userId}`)
+      } else {
+        setFormError(true)
+      }
+    })
+  }
+
+  const textInputHandler = (e) => {
+    setUserId(e.target.value)
+    formError && setFormError(false)
+  }
 
   const viewClickHandler = (e) => {
     e.preventDefault()
-    router.push(`/${userId}`)
+    getProfile()
   }
+
   return (
     <>
       <IntroOuter>
@@ -154,19 +204,33 @@ export default function Home() {
             <IntroCopy>
               A simpler way to display your GitHub profile and repositories.
             </IntroCopy>
-            <IntroForms onSubmit={viewClickHandler}>
-              <IntroTextInput
-                type="text"
-                value={userId}
-                placeholder="Enter a GitHub username.."
-                onChange={(e) => setUserId(e.target.value)}
-                className={userId ? "active" : null}
-              />
-              <IntroButton
-                type="submit"
-                value="View"
-                className={userId ? "active" : null}
-              />
+            <IntroForms
+              onSubmit={viewClickHandler}
+              className={formError ? "error" : null}
+            >
+              <IntroFormGroup>
+                <IntroTextInput
+                  type="text"
+                  value={userId}
+                  placeholder="Enter a GitHub username.."
+                  onChange={textInputHandler}
+                  className={`username ${userId ? "active" : null}`}
+                  required="true"
+                />
+                <IntroButton
+                  type="submit"
+                  value="View"
+                  className={`view ${userId ? "active" : null} ${
+                    formError ? "disabled" : null
+                  }`}
+                  disabled={formError}
+                />
+              </IntroFormGroup>
+              {formError && (
+                <IntroErrorMessage>
+                  Username doesn&apos;t exist
+                </IntroErrorMessage>
+              )}
             </IntroForms>
           </div>
           <Credit>Created by Jason Jun</Credit>
