@@ -37,7 +37,8 @@ const IntroTitle = styled.h1`
 
 const IntroCopy = styled.h2`
   max-width: 600px;
-  margin: 64px 0;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
   color: #fff;
   font-size: ${style.fontSize.xl6};
   font-weight: ${style.fontWeight.bold};
