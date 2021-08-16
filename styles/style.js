@@ -19,11 +19,18 @@ export const hsl = (color, lightness) => {
     case "blue":
       hs = "228, 64%"
       break;
+    case "cyan":
+      hs = "192, 100%"
+      break;
     default:
       hs = "220, 8%"
       break;
   }
   return `hsl(${hs}, ${lightness}%)`
+}
+
+export const colorSet = {
+  darkest: `#242424`
 }
 
 export const fontSet = {
@@ -42,6 +49,7 @@ export const fontSize = {
   xl3: '2rem',
   xl4: '2.5rem',
   xl5: '3rem',
+  xl6: '3.25rem',
 }
 
 export const fontWeight = {
@@ -65,5 +73,12 @@ export const textLetterSpacing = {
   loose: '0.025em',
 }
 
+export const deviceSize = {
+  tiny: `(max-width: 340px)`,
+  mobile: `(max-width: 480px)`,
+  phablet: `(max-width: 640px)`,
+  tablet: `(max-width: 768px)`,
+  landscape: `(max-width: 1024px)`,
+}
 
 // Elements
