@@ -8,6 +8,7 @@ import * as style from "/styles/style"
 import IconStar from "/src/images/icon_star.svg"
 import IconFork from "/src/images/icon_fork.svg"
 import IconWatch from "/src/images/icon_watch.svg"
+import IconIssue from "/src/images/icon_issue.svg"
 
 TimeAgo.addDefaultLocale(en)
 const timeAgo = new TimeAgo("en-US")
@@ -107,7 +108,10 @@ const RepoStatsContent = styled.li`
   color: ${style.hsl("neutral", 48)};
 
   svg {
+    width: 18px;
+    height: 18px;
     margin-right: 4px;
+    fill: ${style.hsl("neutral", 64)};
   }
 
   strong {
@@ -206,6 +210,7 @@ const Repos = (props) => {
                   <IconWatch />
                   <strong>{repo.watchers_count}</strong>
                   <span>Watchers</span>
+                  <IconIssue />
                 </RepoStatsContent>
               </RepoStats>
             </Repo>
