@@ -7,7 +7,6 @@ import * as style from "/styles/style"
 // SVGs
 import IconStar from "/src/images/icon_star.svg"
 import IconFork from "/src/images/icon_fork.svg"
-import IconWatch from "/src/images/icon_watch.svg"
 import IconIssue from "/src/images/icon_issue.svg"
 
 TimeAgo.addDefaultLocale(en)
@@ -198,19 +197,20 @@ const Repos = (props) => {
               <RepoStats>
                 <RepoStatsContent>
                   <IconStar />
-                  <strong>{repo.stargazers_count}</strong>
+                  <strong>
+                    {repo.stargazers_count.toLocaleString("en-US")}
+                  </strong>
                   <span>Stars</span>
                 </RepoStatsContent>
                 <RepoStatsContent>
                   <IconFork />
-                  <strong>{repo.forks_count}</strong>
+                  <strong>{repo.forks_count.toLocaleString("en-US")}</strong>
                   <span>Forks</span>
                 </RepoStatsContent>
                 <RepoStatsContent>
-                  <IconWatch />
-                  <strong>{repo.watchers_count}</strong>
-                  <span>Watchers</span>
                   <IconIssue />
+                  <strong>{repo.open_issues.toLocaleString("en-US")}</strong>
+                  <span>Issues</span>
                 </RepoStatsContent>
               </RepoStats>
             </Repo>
