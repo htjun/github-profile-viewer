@@ -3,6 +3,7 @@ import en from "javascript-time-ago/locale/en"
 import reactStringReplace from "react-string-replace"
 import styled from "styled-components"
 import * as style from "/styles/style"
+import CoolLink from "/src/components/CoolLink"
 
 // SVGs
 import IconStar from "/src/images/icon_star.svg"
@@ -166,7 +167,9 @@ const Repos = (props) => {
           return (
             <Repo key={repo.id}>
               <RepoInfo>
-                <RepoName search_term={searchTerm}>{repo.name}</RepoName>
+                <RepoName search_term={searchTerm}>
+                  <CoolLink href={repo.html_url} target="_blank">{repo.name}</CoolLink>
+                </RepoName>
                 <ConditionalDisplay tag="p" item={repo.description}>
                   {repo.description}
                 </ConditionalDisplay>

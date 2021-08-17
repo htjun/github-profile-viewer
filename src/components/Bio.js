@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 import { Section } from "/styles/styled-elements"
+import CoolLink from "/src/components/CoolLink"
 
 const BioListWrapper = styled.ul``
 
@@ -18,12 +19,18 @@ const BioList = styled.li`
   ${(props) =>
     !props.type &&
     css`
-      display: grid;
-      grid-template-columns: minmax(100px, 1fr) 2fr;
+      display: flex;
 
       h3 {
+        width: 100px;
+        flex-shrink: 0;
+        flex-grow: 0;
         font-weight: ${style.fontWeight.semibold};
         color: ${style.hsl("neutral", 64)};
+      }
+
+      p {
+        flex-grow: 1;
       }
     `}
 
@@ -119,7 +126,7 @@ const Bio = (props) => {
         </BioListContent>
         <BioListContent item={data.blog}>
           <h3>Website</h3>
-          <p>{data.blog}</p>
+          <CoolLink href={data.blog} target="_blank">{data.blog}</CoolLink>
         </BioListContent>
         <BioListContent item={data.email}>
           <h3>Email</h3>
@@ -127,7 +134,7 @@ const Bio = (props) => {
         </BioListContent>
         <BioListContent item={data.twitter_username}>
           <h3>Twitter</h3>
-          <p>{data.twitter_username}</p>
+          <CoolLink href={`https://twitter.com/${data.twitter_username}`} target="_blank">@{data.twitter_username}</CoolLink>
         </BioListContent>
         <BioListContent item={data.following}>
           <h3>Following</h3>
