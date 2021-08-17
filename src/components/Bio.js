@@ -73,10 +73,10 @@ const BioList = styled.li`
           align-items: center;
 
           svg.github {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             fill: ${style.hsl("neutral", 64)};
-            margin-right: 4px;
+            margin-right: 6px;
           }
         }
       }
