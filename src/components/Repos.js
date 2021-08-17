@@ -36,11 +36,11 @@ const RepoInfo = styled.div`
 `
 
 const RepoNameComp = (props) => {
-  const { search_term } = props
-  let content = props.children
+  const { searchTerm } = props
+  let content = props.repoName
 
-  if (search_term) {
-    content = reactStringReplace(content, search_term, (match, i) => {
+  if (searchTerm) {
+    content = reactStringReplace(content, searchTerm, (match, i) => {
       return <mark key={i}>{match}</mark>
     })
   }
@@ -167,7 +167,7 @@ const Repos = (props) => {
           return (
             <Repo key={repo.id}>
               <RepoInfo>
-                <RepoName search_term={searchTerm}>
+                <RepoName searchTerm={searchTerm} repoName={repo.name}>
                   <CoolLink href={repo.html_url} target="_blank">{repo.name}</CoolLink>
                 </RepoName>
                 <ConditionalDisplay tag="p" item={repo.description}>
