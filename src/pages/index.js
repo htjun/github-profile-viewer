@@ -215,7 +215,7 @@ export default function Home() {
                   placeholder="Enter a GitHub username.."
                   onChange={textInputHandler}
                   className={`username ${userId ? "active" : null}`}
-                  required="true"
+                  required
                 />
                 <IntroButton
                   type="submit"
