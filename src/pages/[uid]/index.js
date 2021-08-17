@@ -11,7 +11,8 @@ const Layout = styled.div`
   display: flex;
   align-items: flex-start;
   max-width: 1140px;
-  margin: 64px auto;
+  margin: 0 auto;
+  padding: 48px 24px;
 
   .section-bio {
     width: 340px;
