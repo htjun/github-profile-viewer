@@ -7,11 +7,11 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     ::selection {
-      background: ${style.hsl('cyan', 48)};
+      background: ${style.hsl('blue', 64)};
       color: #fff;
     }
     ::-moz-selection {
-      background: ${style.hsl('cyan', 48)};
+      background: ${style.hsl('blue', 64)};
       color: #fff;
     }
   }
