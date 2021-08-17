@@ -30,7 +30,9 @@ const IntroTitle = styled.h1`
   font-weight: ${style.fontWeight.semibold};
 
   svg {
-    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
     fill: ${style.hsl("neutral", 96)};
   }
 `

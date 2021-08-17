@@ -2,6 +2,7 @@ import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 import { Section } from "/styles/styled-elements"
 import CoolLink from "/src/components/CoolLink"
+import IconGitHub from "/src/images/icon_github.svg"
 
 const BioListWrapper = styled.ul``
 
@@ -68,6 +69,15 @@ const BioList = styled.li`
           font-size: ${style.fontSize.sm};
           line-height: ${style.textLineHeight.tight};
           color: ${style.hsl("neutral", 48)};
+          display: flex;
+          align-items: center;
+
+          svg.github {
+            width: 16px;
+            height: 16px;
+            fill: ${style.hsl("neutral", 64)};
+            margin-right: 4px;
+          }
         }
       }
     `}
@@ -110,7 +120,12 @@ const Bio = (props) => {
           <img src={data.avatar_url} alt="Profile picture" className="avatar" />
           <div className="name-and-id">
             <h1>{data.name}</h1>
-            <p>@{data.login}</p>
+            <p>
+              <CoolLink href={data.html_url} target="_blank">
+                <IconGitHub className="github" />
+                {data.login}
+              </CoolLink>
+            </p>
           </div>
         </BioList>
         <BioListContent type="single-col" item={data.bio}>
@@ -126,7 +141,9 @@ const Bio = (props) => {
         </BioListContent>
         <BioListContent item={data.blog}>
           <h3>Website</h3>
-          <CoolLink href={data.blog} target="_blank">{data.blog}</CoolLink>
+          <CoolLink href={data.blog} target="_blank">
+            {data.blog}
+          </CoolLink>
         </BioListContent>
         <BioListContent item={data.email}>
           <h3>Email</h3>
@@ -134,7 +151,12 @@ const Bio = (props) => {
         </BioListContent>
         <BioListContent item={data.twitter_username}>
           <h3>Twitter</h3>
-          <CoolLink href={`https://twitter.com/${data.twitter_username}`} target="_blank">@{data.twitter_username}</CoolLink>
+          <CoolLink
+            href={`https://twitter.com/${data.twitter_username}`}
+            target="_blank"
+          >
+            @{data.twitter_username}
+          </CoolLink>
         </BioListContent>
         <BioListContent item={data.following}>
           <h3>Following</h3>

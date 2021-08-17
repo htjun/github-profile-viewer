@@ -17,7 +17,7 @@ const LinkAnchor = styled.a`
   display: flex;
   align-items: center;
 
-  svg {
+  svg.arrow {
     opacity: 0;
     width: 14px;
     height: 14px;
@@ -41,7 +41,7 @@ const CoolLink = (props) => {
     <LinkWrapper>
       <LinkAnchor {...props}>
         {props.children}
-        <IconArrowRightUp />
+        <IconArrowRightUp className="arrow" />
       </LinkAnchor>
     </LinkWrapper>
   )
