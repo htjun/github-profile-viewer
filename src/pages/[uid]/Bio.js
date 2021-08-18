@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 import { Section } from "/styles/styled-elements"
 import CoolLink from "/src/components/CoolLink"
-import IconGitHub from "/src/images/icon_github.svg"
+import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 
 const BioListWrapper = styled.ul``
 

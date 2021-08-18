@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 import { Button } from "/styles/styled-elements"
 import * as style from "/styles/style"
 
-import IconChevronDown from "/src/images/icon_chevron-down.svg"
+import IconChevronDown from "/src/assets/icons-general/icon_chevron-down.svg"
 
 const DropdownWrapper = styled.div`
   display: flex;

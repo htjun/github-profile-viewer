@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import { Button } from "/styles/styled-elements"
 import * as style from "/styles/style"
-import IconArrowRightUp from "/src/images/icon_arrow-right-up.svg"
+import IconArrowRightUp from "/src/assets/icons-general/icon_arrow-right-up.svg"
 
 const LinkWrapper = styled.div`
   display: inline-block;

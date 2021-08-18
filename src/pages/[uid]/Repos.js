@@ -6,9 +6,9 @@ import * as style from "/styles/style"
 import CoolLink from "/src/components/CoolLink"
 
 // SVGs
-import IconStar from "/src/images/icon_star.svg"
-import IconFork from "/src/images/icon_fork.svg"
-import IconIssue from "/src/images/icon_issue.svg"
+import IconStar from "/src/assets/icons-general/icon_star.svg"
+import IconFork from "/src/assets/icons-general/icon_fork.svg"
+import IconIssue from "/src/assets/icons-general/icon_issue.svg"
 
 TimeAgo.addDefaultLocale(en)
 const timeAgo = new TimeAgo("en-US")

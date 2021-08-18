@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import styled from "styled-components"
 import * as style from "/styles/style"
 
-import IconGitHub from "/src/images/icon_github.svg"
+import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 
 const IntroOuter = styled.div`
   background-color: ${style.hsl("blue", 12)};
