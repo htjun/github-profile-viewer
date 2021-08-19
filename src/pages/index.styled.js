@@ -44,7 +44,7 @@ export const IntroCopy = styled.h2`
   line-height: ${style.textLineHeight.tight};
 
   @media ${style.deviceSize.tablet} {
-    font-size: clamp(32px, 12vw, 52px);
+    font-size: clamp(28px, 11vw, 52px);
   }
 `
 
@@ -154,12 +154,20 @@ export const IntroFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${style.deviceSize.tablet} {
+    flex-direction: column;
+  }
 `
 
 export const Credit = styled.cite`
   font-size: ${style.fontSize.sm};
   font-style: normal;
   color: ${style.hsl("neutral", 48)};
+
+  @media ${style.deviceSize.tablet} {
+    margin-bottom: 16px;
+  }
 `
 
 export const ApiRate = styled.div`
