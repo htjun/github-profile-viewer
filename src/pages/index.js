@@ -21,13 +21,10 @@ const GITHUB_PROFILE_BASE_URI = "https://api.github.com/users/"
 const GITHUB_API_RATES_URI = "https://api.github.com/rate_limit"
 const ACCESS_TOKEN = process.env.NEXT_PUBLIC_GH_ACCESS_TOKEN
 
-export default function Home() {
+const Home = (props) => {
   const router = useRouter()
   const [userId, setUserId] = useState("")
   const [formError, setFormError] = useState(false)
-
-  const GITHUB_PROFILE_BASE_URI = "https://api.github.com/users/"
-  const ACCESS_TOKEN = process.env.NEXT_PUBLIC_GH_ACCESS_TOKEN
 
   async function getProfile() {
     await fetch(`${GITHUB_PROFILE_BASE_URI}${userId}`, {
@@ -96,9 +93,32 @@ export default function Home() {
               )}
             </IntroForms>
           </div>
-          <Credit>Created by Jason Jun</Credit>
+          <IntroFooter>
+            <Credit>Created by Jason Jun</Credit>
+            <ApiRate>
+              API rate: {props.apiLimit.rate.remaining} /{" "}
+              {props.apiLimit.rate.limit}
+            </ApiRate>
+          </IntroFooter>
         </IntroContainer>
       </IntroOuter>
     </>
   )
 }
+
+export async function getServerSideProps(context) {
+  const res = await fetch(GITHUB_API_RATES_URI, {
+    method: "GET",
+    headers: {
+      Authorization: `token ${ACCESS_TOKEN}`,
+    },
+  })
+
+  const apiLimit = await res.json()
+
+  return {
+    props: { apiLimit }, // will be passed to the page component as props
+  }
+}
+
+export default Home
