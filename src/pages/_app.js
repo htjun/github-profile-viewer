@@ -27,6 +27,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${style.hsl('navy', 96)};
   }
+
+  mark {
+    background-color: ${style.hsl('cyan', 92)};
+  }
 `
 
 function MyApp({ Component, pageProps }) {
