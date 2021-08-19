@@ -9,7 +9,8 @@ export default function useProfile(uid) {
   const [userRepos, setUserRepos] = useState([])
   const [status, setStatus] = useState({
     profile: false,
-    repos: false
+    repos: false,
+    error: false
   })
 
   useEffect(() => {
@@ -24,7 +25,6 @@ export default function useProfile(uid) {
 
     async function requestUserProfile() {
       setUserProfile([])
-      setStatus("loading")
       localCache[uid] = {}
 
       await fetch(`${GITHUB_PROFILE_BASE_URI}${uid}`, {
@@ -40,7 +40,10 @@ export default function useProfile(uid) {
                 profile: true
             }))
           } else {
-            setStatus("error")
+            etStatus(prevState => ({
+                ...prevState,
+                error: true
+            }))
           }
 
           return response.json()
