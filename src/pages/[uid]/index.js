@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
 import Bio from "./Bio"
 import FilterBar from "./FilterBar"
 import Repos from "./Repos"
-import styled from "styled-components"
-import { sectionStyle } from "/styles/styled-elements"
-
-const Layout = styled.div`
-  display: flex;
-  align-items: flex-start;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 48px 24px;
-`
-
-const RepoContainer = styled.section`
-  ${sectionStyle};
-  flex-grow: 1;
-`
+import {Layout, RepoContainer} from "./index.styled"
 
 const Page = () => {
   const router = useRouter()
