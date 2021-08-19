@@ -32,7 +32,7 @@ const Page = () => {
   return (
     <>
       <Layout>
-        <Bio data={userProfile} isLoading={status.profile} />
+        <Bio data={userProfile} isLoaded={status.profile} />
         <RepoContainer>
           <FilterBar
             data={userRepos}
@@ -51,6 +51,7 @@ const Page = () => {
             forkedDisplay={forkedDisplay}
             archivedDisplay={archivedDisplay}
             searchTerm={searchTerm}
+            isLoaded={status.repos}
           />
         </RepoContainer>
       </Layout>

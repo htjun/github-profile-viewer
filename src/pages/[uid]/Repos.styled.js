@@ -2,6 +2,7 @@ import reactStringReplace from "react-string-replace"
 import styled from "styled-components"
 import * as style from "/styles/style"
 import CoolLink from "/src/components/CoolLink"
+import { SkeletonBlock } from "/styles/styled-elements"
 
 export const ReposWrapper = styled.ul``
 
@@ -17,6 +18,7 @@ export const Repo = styled.li`
 `
 
 export const RepoInfo = styled.div`
+  width: 100%;
   margin-right: 24px;
 
   p {
@@ -124,3 +126,37 @@ export const RepoStatsContent = styled.li`
     margin-right: 4px;
   }
 `
+
+const RepoSkeleton = () => {
+  return (
+    <Repo>
+      <RepoInfo>
+        <SkeletonBlock width="50" height="30" bottom="6"/>
+        <SkeletonBlock height="21" bottom="24"/>
+        <RepoDetails>
+          <SkeletonBlock height="18" right="20"/>
+          <SkeletonBlock height="18" right="200"/>
+        </RepoDetails>
+      </RepoInfo>
+      <RepoStats>
+        <SkeletonBlock height="18"/>
+        <SkeletonBlock height="18"/>
+        <SkeletonBlock height="18"/>
+      </RepoStats>
+    </Repo>
+  )
+}
+
+export const ReposSkeleton = () => {
+  const skeletons = []
+
+  for (let i = 0; i < 10; i++) {
+    skeletons.push(<RepoSkeleton key={i} />)
+  }
+
+  return (
+    <ReposWrapper>
+      {skeletons}
+    </ReposWrapper>
+  )
+}

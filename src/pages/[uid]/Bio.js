@@ -11,7 +11,7 @@ const BioListContent = (props) => {
 }
 
 const Bio = (props) => {
-  const { data, isLoading } = props
+  const { data, isLoaded } = props
 
   function getCreatedYear(date) {
     const year = new Date(date).getFullYear()
@@ -103,7 +103,7 @@ const Bio = (props) => {
             </BioListWrapper>
           ),
           false: <BioSkeleton />,
-        }[isLoading]
+        }[isLoaded]
       }
     </>
   )
