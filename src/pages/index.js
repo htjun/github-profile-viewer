@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import { useState } from "react"
+import Head from "next/head"
 import { useRouter } from "next/router"
 import {
   IntroOuter,
@@ -54,6 +55,9 @@ const Home = (props) => {
 
   return (
     <>
+      <Head>
+        <title>GitHub Profile Viewer</title>
+      </Head>
       <IntroOuter>
         <IntroContainer>
           <div>

@@ -1,3 +1,5 @@
+import { useState } from "react"
+import Head from "next/head"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
 import Bio from "./Bio"
@@ -16,6 +18,9 @@ const Page = () => {
 
   return (
     <>
+      <Head>
+        <title>{userProfile.name && `${userProfile.name} – `}GitHub Profile Viewer</title>
+      </Head>
       <Layout>
         <Bio data={userProfile} isLoaded={status.profile} />
         <RepoContainer>
