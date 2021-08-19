@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 
-const InputStyle = css`
+const inputStyle = css`
   height: 36px;
   padding: 4px 12px;
   font-size: ${style.fontSize.sm};
@@ -21,18 +21,18 @@ const InputStyle = css`
   }
 `
 
-export const Section = styled.section`
+export const sectionStyle = css`
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 24px 32px -24px rgba(110, 130, 180, 0.2);
 `
 
 export const InputText = styled.input`
-  ${InputStyle};
+  ${inputStyle};
 `
 
 export const Button = styled.button`
-  ${InputStyle};
+  ${inputStyle};
   font-weight: ${style.fontWeight.semibold};
   display: flex;
   align-items: center;

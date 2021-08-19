@@ -5,7 +5,7 @@ import Bio from "./Bio"
 import FilterBar from "./FilterBar"
 import Repos from "./Repos"
 import styled from "styled-components"
-import { Section } from "/styles/styled-elements"
+import { sectionStyle } from "/styles/styled-elements"
 
 const Layout = styled.div`
   display: flex;
@@ -13,18 +13,11 @@ const Layout = styled.div`
   max-width: 1140px;
   margin: 0 auto;
   padding: 48px 24px;
+`
 
-  .section-bio {
-    width: 340px;
-    flex-shrink: 0;
-    margin-right: 24px;
-    position: sticky;
-    top: 24px;
-  }
-
-  .section-list {
-    flex-grow: 1;
-  }
+const RepoContainer = styled.section`
+  ${sectionStyle};
+  flex-grow: 1;
 `
 
 const Page = () => {
@@ -40,7 +33,7 @@ const Page = () => {
     <>
       <Layout>
         <Bio data={userProfile} />
-        <Section className="section-list">
+        <RepoContainer>
           <FilterBar
             data={userRepos}
             sortBy={sortBy}
@@ -59,7 +52,7 @@ const Page = () => {
             archivedDisplay={archivedDisplay}
             searchTerm={searchTerm}
           />
-        </Section>
+        </RepoContainer>
       </Layout>
     </>
   )
