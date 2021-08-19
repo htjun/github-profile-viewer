@@ -194,7 +194,11 @@ const Repos = (props) => {
                 </ConditionalDisplay>
 
                 <RepoDetails>
-                  <ConditionalDisplay tag="li" item={repo.language} className="language">
+                  <ConditionalDisplay
+                    tag="li"
+                    item={repo.language}
+                    className="language"
+                  >
                     <LangIcon name={repo.language} />
                     <strong>{repo.language}</strong>
                   </ConditionalDisplay>
