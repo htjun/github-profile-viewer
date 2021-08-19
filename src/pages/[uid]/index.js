@@ -32,7 +32,7 @@ const Page = () => {
   return (
     <>
       <Layout>
-        <Bio data={userProfile} />
+        <Bio data={userProfile} isLoading={status.profile} />
         <RepoContainer>
           <FilterBar
             data={userRepos}

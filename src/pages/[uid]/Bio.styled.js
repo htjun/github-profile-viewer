@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
-import { sectionStyle } from "/styles/styled-elements"
+import { sectionStyle, SkeletonBlock } from "/styles/styled-elements"
 
 export const BioListWrapper = styled.ul`
   ${sectionStyle};
@@ -67,6 +67,8 @@ export const BioList = styled.li`
       }
 
       .identifier {
+        width: 100%;
+
         h1 {
           font-size: ${style.fontSize.xl};
           font-weight: ${style.fontWeight.semibold};
@@ -104,8 +106,49 @@ export const BioList = styled.li`
 export const BioAvatar = styled.div`
   width: 60px;
   height: 60px;
+  flex-shrink: 0;
   border-radius: 50%;
   margin-right: 16px;
   background-color: ${style.hsl("neutral", 92)};
   overflow: hidden;
 `
+
+export const BioSkeleton = () => {
+  return (
+    <BioListWrapper isWebsite={true}>
+      <BioList type="header">
+        <BioAvatar />
+        <div className="identifier">
+          <SkeletonBlock width="80" height="25" bottom="6" />
+          <SkeletonBlock width="40" height="17" />
+        </div>
+      </BioList>
+      <BioList type="single-col">
+        <SkeletonBlock height="60" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock width="30" height="21" right="20" />
+        <SkeletonBlock width="50" height="21" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock width="30" height="21" right="20" />
+        <SkeletonBlock width="50" height="21" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock width="30" height="21" right="20" />
+        <SkeletonBlock width="50" height="21" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock width="30" height="21" right="20" />
+        <SkeletonBlock width="50" height="21" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock width="30" height="21" right="20" />
+        <SkeletonBlock width="50" height="21" />
+      </BioList>
+      <BioList>
+        <SkeletonBlock height="21" />
+      </BioList>
+    </BioListWrapper>
+  )
+}

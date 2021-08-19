@@ -43,3 +43,29 @@ export const Button = styled.button`
     margin-left: 8px;
   }
 `
+export const SkeletonBlock = styled.div`
+  background-color: ${style.hsl("neutral", 96)};
+  width: 100%;
+  border-radius: 1px;
+
+  ${(props) =>
+    props.width &&
+    css`
+      width: ${props.width}%;
+    `}
+  ${(props) =>
+    props.height &&
+    css`
+      height: ${props.height}px;
+    `}
+  ${(props) =>
+    props.right &&
+    css`
+      margin-right: ${props.right}px;
+    `}
+  ${(props) =>
+    props.bottom &&
+    css`
+      margin-bottom: ${props.bottom}px;
+    `}
+`
