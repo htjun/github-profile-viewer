@@ -7,7 +7,10 @@ const localCache = {}
 export default function useProfile(uid) {
   const [userProfile, setUserProfile] = useState([])
   const [userRepos, setUserRepos] = useState([])
-  const [status, setStatus] = useState("unloaded")
+  const [status, setStatus] = useState({
+    profile: false,
+    repos: false
+  })
 
   useEffect(() => {
     if (!uid) {
@@ -32,7 +35,10 @@ export default function useProfile(uid) {
       })
         .then((response) => {
           if (response.ok) {
-            setStatus("loaded")
+            setStatus(prevState => ({
+                ...prevState,
+                profile: true
+            }))
           } else {
             setStatus("error")
           }
@@ -50,7 +56,6 @@ export default function useProfile(uid) {
           requestUserRepos(profile.repos_url, repoPages)
         })
         .catch((error) => {
-          setStatus("error")
           console.log(error)
         })
     }
@@ -71,11 +76,10 @@ export default function useProfile(uid) {
 
       Promise.all(fetchResponses.flat())
         .then((response) => {
-          if (response.ok) {
-            setStatus("loaded")
-          } else {
-            setStatus("error")
-          }
+          setStatus(prevState => ({
+                ...prevState,
+                repos: true
+            }))
           return response
         })
         .then((repos) => {
@@ -83,7 +87,6 @@ export default function useProfile(uid) {
           setUserRepos(localCache[uid]["repos"])
         })
         .catch((error) => {
-          setStatus("error")
           console.log(error)
         })
     }
