@@ -43,10 +43,26 @@ export const Button = styled.button`
     margin-left: 8px;
   }
 `
+
 export const SkeletonBlock = styled.div`
-  background-color: ${style.hsl("neutral", 96)};
   width: 100%;
-  border-radius: 1px;
+  border-radius: 4px;
+
+  background:
+    linear-gradient(0.25turn, transparent, #F5F5F6, transparent),
+    linear-gradient(#e8eaed, #e8eaed),
+    radial-gradient(38px circle at 19px 19px, #e8eaed 50%, transparent 51%),
+    linear-gradient(#e8eaed, #e8eaed);
+  background-repeat: no-repeat;
+  background-size: 500px 250px, 500px 180px, 100px 100px, 225px 30px;
+  background-position: -500px 0, 0 0, 0px 190px, 50px 195px;
+  animation: loading 1.5s infinite;
+
+  @keyframes loading {
+    to {
+      background-position: 315px 0, 0 0, 0 190px, 50px 195px;
+    }
+  }
 
   ${(props) =>
     props.width &&
