@@ -4,6 +4,7 @@ import reactStringReplace from "react-string-replace"
 import styled from "styled-components"
 import * as style from "/styles/style"
 import CoolLink from "/src/components/CoolLink"
+import LangIcon from "/src/components/LangIcon"
 
 // SVGs
 import IconStar from "/src/assets/icons-general/icon_star.svg"
@@ -69,6 +70,8 @@ const RepoDetails = styled.ul`
   margin-top: 24px;
 
   li {
+    display: flex;
+    align-items: center;
     margin-right: 24px;
     font-weight: ${style.fontWeight.medium};
 
@@ -78,6 +81,14 @@ const RepoDetails = styled.ul`
       border-radius: 16px;
       margin-top: -4px;
       margin-bottom: -6px;
+    }
+
+    &.language {
+      svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+      }
     }
   }
 `
@@ -183,7 +194,8 @@ const Repos = (props) => {
                 </ConditionalDisplay>
 
                 <RepoDetails>
-                  <ConditionalDisplay tag="li" item={repo.language}>
+                  <ConditionalDisplay tag="li" item={repo.language} className="language">
+                    <LangIcon name={repo.language} />
                     <strong>{repo.language}</strong>
                   </ConditionalDisplay>
                   <ConditionalDisplay
