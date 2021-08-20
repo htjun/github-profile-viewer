@@ -8,8 +8,8 @@ export default function useProfile(uid) {
   const [userProfile, setUserProfile] = useState([])
   const [userRepos, setUserRepos] = useState([])
   const [status, setStatus] = useState({
-    profile: false,
-    repos: false,
+    profileLoading: false,
+    reposLoading: false,
     error: false
   })
 
@@ -27,6 +27,11 @@ export default function useProfile(uid) {
       setUserProfile([])
       localCache[uid] = {}
 
+      setStatus(prevState => ({
+          ...prevState,
+          profileLoading: true
+      }))
+
       await fetch(`${GITHUB_PROFILE_BASE_URI}${uid}`, {
         method: "GET",
         headers: {
@@ -37,7 +42,7 @@ export default function useProfile(uid) {
           if (response.ok) {
             setStatus(prevState => ({
                 ...prevState,
-                profile: true
+                profileLoading: false
             }))
           } else {
             etStatus(prevState => ({
@@ -66,6 +71,11 @@ export default function useProfile(uid) {
     async function requestUserRepos(url, count) {
       const fetchResponses = []
 
+      setStatus(prevState => ({
+          ...prevState,
+          reposLoading: true
+      }))
+
       for (let i = 0; i < count; i++) {
         fetchResponses[i] = await fetch(`${url}?per_page=100&page=${i + 1}`, {
           method: "GET",
@@ -81,7 +91,7 @@ export default function useProfile(uid) {
         .then((response) => {
           setStatus(prevState => ({
                 ...prevState,
-                repos: true
+                reposLoading: false
             }))
           return response
         })
@@ -93,7 +103,7 @@ export default function useProfile(uid) {
           console.log(error)
         })
     }
-  }, [uid])
+  }, [])
 
   return [userProfile, userRepos, status]
 }

@@ -19,7 +19,7 @@ import IconFork from "/src/assets/icons-general/icon_fork.svg"
 import IconIssue from "/src/assets/icons-general/icon_issue.svg"
 
 const Repos = (props) => {
-  const { data, sortBy, forkedDisplay, archivedDisplay, searchTerm, isLoaded } =
+  const { data, sortBy, forkedDisplay, archivedDisplay, searchTerm, isLoading } =
     props
 
   const sortedData = data.sort(function (a, b) {
@@ -51,7 +51,8 @@ const Repos = (props) => {
     <>
       {
         {
-          true: (
+          true: <ReposSkeleton />,
+          false: (
             <ReposWrapper>
               {sortedData
                 .filter((r) => {
@@ -134,8 +135,7 @@ const Repos = (props) => {
                 })}
             </ReposWrapper>
           ),
-          false: <ReposSkeleton />,
-        }[isLoaded]
+        }[isLoading]
       }
     </>
   )

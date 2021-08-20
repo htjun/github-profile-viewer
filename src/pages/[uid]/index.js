@@ -22,7 +22,7 @@ const Page = () => {
         <title>{userProfile.name && `${userProfile.name} – `}GitHub Profile Viewer</title>
       </Head>
       <Layout>
-        <Bio data={userProfile} isLoaded={status.profile} />
+        <Bio data={userProfile} isLoading={status.profileLoading} />
         <RepoContainer>
           <FilterBar
             data={userRepos}
@@ -41,7 +41,7 @@ const Page = () => {
             forkedDisplay={forkedDisplay}
             archivedDisplay={archivedDisplay}
             searchTerm={searchTerm}
-            isLoaded={status.repos}
+            isLoading={status.reposLoading}
           />
         </RepoContainer>
       </Layout>
