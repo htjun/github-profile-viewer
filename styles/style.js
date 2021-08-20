@@ -77,8 +77,7 @@ export const deviceSize = {
   tiny: `(max-width: 340px)`,
   mobile: `(max-width: 480px)`,
   phablet: `(max-width: 640px)`,
-  tablet: `(max-width: 768px)`,
-  landscape: `(max-width: 1024px)`,
+  tablet: `(max-width: 850px)`,
+  landscape: `(max-width: 1080px)`,
+  laptop: `(max-width: 1140px)`,
 }
-
-// Elements

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { Button } from "/styles/styled-elements"
 import * as style from "/styles/style"
 
@@ -9,6 +9,10 @@ const DropdownWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
+
+  @media ${style.deviceSize.phablet} {
+    justify-content: flex-start;
+  }
 `
 
 const DropdownButton = styled(Button)`

@@ -9,12 +9,18 @@ export const Layout = styled.div`
   margin: 0 auto;
   padding: 48px 24px;
 
-  @media ${style.deviceSize.landscape} {
+  @media ${style.deviceSize.tablet} {
     flex-direction: column;
+    padding: 24px;
+  }
+
+  @media ${style.deviceSize.phablet} {
+    padding: 0;
   }
 `
 
 export const RepoContainer = styled.section`
   ${sectionStyle};
+  width: 100%;
   flex-grow: 1;
 `

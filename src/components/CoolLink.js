@@ -1,5 +1,4 @@
-import styled, { css } from "styled-components"
-import { Button } from "/styles/styled-elements"
+import styled from "styled-components"
 import * as style from "/styles/style"
 import IconArrowRightUp from "/src/assets/icons-general/icon_arrow-right-up.svg"
 
@@ -25,6 +24,10 @@ const LinkAnchor = styled.a`
     margin-left: 4px;
     fill: ${style.hsl("neutral", 48)};
     transition: opacity 0.12s linear 0s;
+
+    @media ${style.deviceSize.landscape} {
+      display: none;
+    }
   }
 
   &:hover {

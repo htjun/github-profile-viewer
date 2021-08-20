@@ -4,7 +4,9 @@ import * as style from "/styles/style"
 import CoolLink from "/src/components/CoolLink"
 import { SkeletonBlock } from "/styles/styled-elements"
 
-export const ReposWrapper = styled.ul``
+export const ReposWrapper = styled.ul`
+  width: 100%;
+`
 
 export const Repo = styled.li`
   display: flex;
@@ -15,11 +17,23 @@ export const Repo = styled.li`
   &:last-of-type {
     border-bottom: none;
   }
+
+  @media ${style.deviceSize.landscape} {
+    flex-direction: column;;
+  }
+
+  @media ${style.deviceSize.phablet} {
+    padding: 18px;
+  }
 `
 
 export const RepoInfo = styled.div`
   width: 100%;
   margin-right: 24px;
+
+  @media ${style.deviceSize.phablet} {
+    margin-right: 0;
+  }
 
   p {
     font-size: ${style.fontSize.sm};
@@ -107,6 +121,14 @@ export const RepoStats = styled.ul`
   min-width: 140px;
   padding: 2px 0 2px 16px;
   border-left: 1px solid ${style.hsl("neutral", 92)};
+
+  @media ${style.deviceSize.landscape} {
+    border: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0;
+    margin-top: 16px;
+  }
 `
 
 export const RepoStatsContent = styled.li`
@@ -114,6 +136,10 @@ export const RepoStatsContent = styled.li`
   align-items: center;
   font-size: ${style.fontSize.xs};
   color: ${style.hsl("neutral", 48)};
+
+  @media ${style.deviceSize.landscape} {
+    margin-right: 24px;
+  }
 
   svg {
     width: 18px;

@@ -12,6 +12,13 @@ const FilterTopWrapper = styled.ul`
   justify-content: space-between;
   align-items: center;
   padding: 0 24px;
+
+  @media ${style.deviceSize.phablet} {
+    padding: 18px;
+    padding-bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `
 
 const FilterBottomWrapper = styled.div`
@@ -19,6 +26,15 @@ const FilterBottomWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
+
+  @media ${style.deviceSize.phablet} {
+    padding: 16px 18px;
+  }
+
+  @media ${style.deviceSize.phablet} {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   & > div {
     display: flex;
@@ -41,6 +57,12 @@ const Title = styled.li`
   margin-right: 32px;
   align-items: baseline;
 
+  @media ${style.deviceSize.phablet} {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+
   h2 {
     font-size: ${style.fontSize.sm};
     font-weight: ${style.fontWeight.medium};
@@ -61,9 +83,15 @@ const Title = styled.li`
 `
 
 const SearchInput = styled(InputText)`
-  width: 100%;
-  max-width: 320px;
+  width: auto;
+  flex-grow: 1;
   margin-right: 32px;
+
+  @media ${style.deviceSize.phablet} {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 16px;
+  }
 `
 
 const FilterDivider = styled.hr`

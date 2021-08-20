@@ -103,7 +103,7 @@ export default function useProfile(uid) {
           console.log(error)
         })
     }
-  }, [])
+  }, [uid])
 
   return [userProfile, userRepos, status]
 }

@@ -10,6 +10,16 @@ export const BioListWrapper = styled.ul`
   position: sticky;
   top: 24px;
 
+  @media ${style.deviceSize.landscape} {
+    width: 240px;
+  }
+
+  @media ${style.deviceSize.tablet} {
+    width: 100%;
+    position: inherit;
+    margin-bottom: 24px;
+  }
+
   ${(props) => {
     if (props.isWebsite || props.isEmail) {
       return css`
@@ -17,6 +27,8 @@ export const BioListWrapper = styled.ul`
       `
     }
   }}
+
+
 `
 
 export const BioList = styled.li`
@@ -28,6 +40,15 @@ export const BioList = styled.li`
 
   &:last-of-type {
     border-bottom: none;
+  }
+
+  @media ${style.deviceSize.landscape} {
+    flex-direction: column;
+    padding: 12px 18px;
+  }
+
+  @media ${style.deviceSize.tablet} {
+    flex-direction: row;
   }
 
   ${(props) =>
@@ -61,6 +82,14 @@ export const BioList = styled.li`
       align-items: center;
       padding: 24px;
 
+      @media ${style.deviceSize.landscape} {
+        padding: 24px 18px;
+      }
+
+      @media ${style.deviceSize.tablet} {
+        flex-direction: column;
+      }
+
       img.avatar {
         width: 100%;
         height: 100%;
@@ -68,6 +97,10 @@ export const BioList = styled.li`
 
       .identifier {
         width: 100%;
+
+        @media ${style.deviceSize.landscape} {
+          text-align: center;
+        }
 
         h1 {
           font-size: ${style.fontSize.xl};
@@ -91,17 +124,25 @@ export const BioList = styled.li`
             fill: ${style.hsl("neutral", 64)};
             margin-right: 6px;
           }
+
+          @media ${style.deviceSize.landscape} {
+            display: block;
+          }
         }
       }
     `}
 
-    ${(props) =>
-    props.type === "footer" &&
-    css`
-      display: block;
-      padding: 24px;
-      color: ${style.hsl("neutral", 48)};
-    `}
+  ${(props) =>
+  props.type === "footer" &&
+  css`
+    display: block;
+    padding: 24px;
+    color: ${style.hsl("neutral", 48)};
+
+    @media ${style.deviceSize.landscape} {
+      padding: 24px 18px;
+    }
+  `}
 `
 export const BioAvatar = styled.div`
   width: 60px;
@@ -111,6 +152,10 @@ export const BioAvatar = styled.div`
   margin-right: 16px;
   background-color: ${style.hsl("neutral", 92)};
   overflow: hidden;
+
+  @media ${style.deviceSize.landscape} {
+    margin-right: 0;
+  }
 `
 
 export const BioSkeleton = () => {
