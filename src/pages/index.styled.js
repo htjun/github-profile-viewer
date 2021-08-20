@@ -193,7 +193,7 @@ export const BgBall = styled.div`
 
   @keyframes ambient {
     0% {
-      box-shadow: 0 0 50px rgba(255,255,255,0.02);
+      box-shadow: 0 0 50px rgba(255,255,255,0.04);
       filter: blur(12px);
     }
     50% {
@@ -202,7 +202,7 @@ export const BgBall = styled.div`
     }
 
     100% {
-      box-shadow: 0 0 50px rgba(255,255,255,0.02);
+      box-shadow: 0 0 50px rgba(255,255,255,0.04);
       filter: blur(12px);
     }
   }
