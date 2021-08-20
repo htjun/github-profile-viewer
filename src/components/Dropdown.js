@@ -33,7 +33,7 @@ const DropdownMenu = styled.ul`
   position: absolute;
   top: 44px;
   padding: 8px 0;
-  min-width: 200px;
+  min-width: 180px;
   border: 1px solid ${style.hsl("neutral", 88)};
   border-radius: 6px;
   box-shadow: 0 10px 15px -3px rgba(110, 130, 180, 0.2),
