@@ -146,7 +146,7 @@ const FilterBar = (props) => {
       <FilterBottomWrapper>
         <SearchInput
           type="text"
-          placeholder="Search.."
+          placeholder="Search repository.."
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value)
