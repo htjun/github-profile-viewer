@@ -14,6 +14,7 @@ import {
   IntroFooter,
   Credit,
   ApiRate,
+  BgBall
 } from "./index.styled"
 
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
@@ -105,6 +106,7 @@ const Home = (props) => {
             </ApiRate>
           </IntroFooter>
         </IntroContainer>
+        <BgBall />
       </IntroOuter>
     </>
   )

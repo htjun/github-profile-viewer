@@ -2,7 +2,10 @@ import styled from "styled-components"
 import * as style from "/styles/style"
 
 export const IntroOuter = styled.div`
-  background-color: ${style.hsl("blue", 12)};
+  /* background-color: ${style.hsl("blue", 12)}; */
+  background: rgb(11,19,50);
+  background: linear-gradient(125deg, rgba(11,19,50,1) 0%, rgba(17,28,74,1) 54%, rgba(8,17,45,1) 100%);
+
   min-height: 100vh;
 `
 
@@ -161,9 +164,10 @@ export const IntroFooter = styled.footer`
 `
 
 export const Credit = styled.cite`
-  font-size: ${style.fontSize.sm};
+  font-size: ${style.fontSize.xs};
+  font-weight: ${style.fontWeight.semibold};
   font-style: normal;
-  color: ${style.hsl("neutral", 48)};
+  color: ${style.hsl("neutral", 32)};
 
   @media ${style.deviceSize.tablet} {
     margin-bottom: 16px;
@@ -172,5 +176,47 @@ export const Credit = styled.cite`
 
 export const ApiRate = styled.div`
   font-size: ${style.fontSize.xs};
-  color: ${style.hsl("navy", 24)};
+  color: ${style.hsl("navy", 32)};
+`
+
+export const BgBall = styled.div`
+  width: 80vh;
+  height: 80vh;
+  background-color: transparent;
+  position: absolute;
+  right: 4vw;
+  top: 10vh;
+  border-radius: 50%;
+
+  animation: ambient 7s infinite, away 60s infinite;
+  animation-timing-function: ease;
+
+  @keyframes ambient {
+    0% {
+      box-shadow: 0 0 50px rgba(255,255,255,0.02);
+    }
+    50% {
+      box-shadow: 0 0 1000px rgba(255,255,255,0.07);
+    }
+
+    100% {
+      box-shadow: 0 0 50px rgba(255,255,255,0.02);
+    }
+  }
+
+  @keyframes away {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.7);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media ${style.deviceSize.phablet} {
+    display: none;
+  }
 `
