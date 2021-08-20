@@ -116,7 +116,7 @@ const FilterBar = (props) => {
     { slug: "created_at", label: "Create" },
     { slug: "stargazers_count", label: "Stars" },
     { slug: "forks_count", label: "Forks" },
-    { slug: "watchers", label: "Watchers" },
+    { slug: "open_issues", label: "Issues" },
   ]
 
   const repoCount = data

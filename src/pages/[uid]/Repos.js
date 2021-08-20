@@ -38,8 +38,8 @@ const Repos = (props) => {
       case "forks_count":
         result = b.forks_count - a.forks_count
         break
-      case "watchers":
-        result = b.watchers - a.watchers
+      case "open_issues":
+        result = b.open_issues - a.open_issues
         break
       default:
         break
