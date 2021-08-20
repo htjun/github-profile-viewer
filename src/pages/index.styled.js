@@ -167,7 +167,7 @@ export const Credit = styled.cite`
   font-size: ${style.fontSize.xs};
   font-weight: ${style.fontWeight.semibold};
   font-style: normal;
-  color: ${style.hsl("neutral", 32)};
+  color: ${style.hsl("navy", 32)};
 
   @media ${style.deviceSize.tablet} {
     margin-bottom: 16px;
@@ -180,27 +180,30 @@ export const ApiRate = styled.div`
 `
 
 export const BgBall = styled.div`
-  width: 80vh;
-  height: 80vh;
+  width: 82vh;
+  height: 82vh;
   background-color: transparent;
   position: absolute;
   right: 4vw;
-  top: 10vh;
+  top: 9vh;
   border-radius: 50%;
 
-  animation: ambient 7s infinite, away 60s infinite;
+  animation: ambient 8s infinite, away 60s infinite;
   animation-timing-function: ease;
 
   @keyframes ambient {
     0% {
       box-shadow: 0 0 50px rgba(255,255,255,0.02);
+      filter: blur(12px);
     }
     50% {
-      box-shadow: 0 0 1000px rgba(255,255,255,0.07);
+      box-shadow: 0 0 1000px rgba(255,255,255,0.08);
+      filter: blur(2px);
     }
 
     100% {
       box-shadow: 0 0 50px rgba(255,255,255,0.02);
+      filter: blur(12px);
     }
   }
 
