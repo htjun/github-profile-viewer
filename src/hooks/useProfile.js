@@ -29,7 +29,8 @@ export default function useProfile(uid) {
 
       setStatus(prevState => ({
           ...prevState,
-          profileLoading: true
+          profileLoading: true,
+          reposLoading: true
       }))
 
       await fetch(`${GITHUB_PROFILE_BASE_URI}${uid}`, {
@@ -42,10 +43,12 @@ export default function useProfile(uid) {
           if (response.ok) {
             setStatus(prevState => ({
                 ...prevState,
-                profileLoading: false
+                profileLoading: false,
+                error: false
             }))
           } else {
-            etStatus(prevState => ({
+            console.log(response)
+            setStatus(prevState => ({
                 ...prevState,
                 error: true
             }))
@@ -73,7 +76,7 @@ export default function useProfile(uid) {
 
       setStatus(prevState => ({
           ...prevState,
-          reposLoading: true
+          reposLoading: true,
       }))
 
       for (let i = 0; i < count; i++) {
@@ -91,7 +94,7 @@ export default function useProfile(uid) {
         .then((response) => {
           setStatus(prevState => ({
                 ...prevState,
-                reposLoading: false
+                reposLoading: false,
             }))
           return response
         })

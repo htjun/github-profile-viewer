@@ -5,7 +5,8 @@ import useProfile from "/src/hooks/useProfile"
 import Bio from "./Bio"
 import FilterBar from "./FilterBar"
 import Repos from "./Repos"
-import {Layout, RepoContainer} from "./index.styled"
+import NoUsername from "./NoUsername"
+import { Layout, RepoContainer } from "./index.styled"
 
 const Page = () => {
   const router = useRouter()
@@ -18,33 +19,45 @@ const Page = () => {
 
   return (
     <>
-      <Head>
-        <title>{userProfile.name && `${userProfile.name} – `}GitHub Profile Viewer</title>
-      </Head>
-      <Layout>
-        <Bio data={userProfile} isLoading={status.profileLoading} />
-        <RepoContainer>
-          <FilterBar
-            data={userRepos}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            forkedDisplay={forkedDisplay}
-            setForkedDisplay={setForkedDisplay}
-            archivedDisplay={archivedDisplay}
-            setArchivedDisplay={setArchivedDisplay}
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-          />
-          <Repos
-            data={userRepos}
-            sortBy={sortBy}
-            forkedDisplay={forkedDisplay}
-            archivedDisplay={archivedDisplay}
-            searchTerm={searchTerm}
-            isLoading={status.reposLoading}
-          />
-        </RepoContainer>
-      </Layout>
+      {
+        {
+          true: <NoUsername />,
+          false: (
+            <>
+              <Head>
+                <title>
+                  {userProfile.name && `${userProfile.name} – `}GitHub Profile
+                  Viewer
+                </title>
+              </Head>
+              <Layout>
+                <Bio data={userProfile} isLoading={status.profileLoading} />
+                <RepoContainer>
+                  <FilterBar
+                    data={userRepos}
+                    sortBy={sortBy}
+                    setSortBy={setSortBy}
+                    forkedDisplay={forkedDisplay}
+                    setForkedDisplay={setForkedDisplay}
+                    archivedDisplay={archivedDisplay}
+                    setArchivedDisplay={setArchivedDisplay}
+                    searchTerm={searchTerm}
+                    setSearchTerm={setSearchTerm}
+                  />
+                  <Repos
+                    data={userRepos}
+                    sortBy={sortBy}
+                    forkedDisplay={forkedDisplay}
+                    archivedDisplay={archivedDisplay}
+                    searchTerm={searchTerm}
+                    isLoading={status.reposLoading}
+                  />
+                </RepoContainer>
+              </Layout>
+            </>
+          ),
+        }[status.error]
+      }
     </>
   )
 }
