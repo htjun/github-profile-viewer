@@ -2,7 +2,7 @@ import CoolLink from "/src/components/CoolLink"
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 import { BioListWrapper, BioList, BioAvatar, BioSkeleton } from "./Bio.styled"
 
-const BioListContent = (props) => {
+const ConditionalBioList = (props) => {
   if (props.item) {
     return <BioList type={props.type}>{props.children}</BioList>
   } else {
@@ -52,28 +52,28 @@ const Bio = (props) => {
                   </div>
                 </div>
               </BioList>
-              <BioListContent type="single-col" item={data.bio}>
+              <ConditionalBioList type="single-col" item={data.bio}>
                 <p>{data.bio}</p>
-              </BioListContent>
-              <BioListContent item={data.location}>
+              </ConditionalBioList>
+              <ConditionalBioList item={data.location}>
                 <h3>Location</h3>
                 <p>{data.location}</p>
-              </BioListContent>
-              <BioListContent item={data.company}>
+              </ConditionalBioList>
+              <ConditionalBioList item={data.company}>
                 <h3>Company</h3>
                 <p>{data.company}</p>
-              </BioListContent>
-              <BioListContent item={data.blog}>
+              </ConditionalBioList>
+              <ConditionalBioList item={data.blog}>
                 <h3>Website</h3>
                 <CoolLink href={data.blog} target="_blank">
                   {data.blog}
                 </CoolLink>
-              </BioListContent>
-              <BioListContent item={data.email}>
+              </ConditionalBioList>
+              <ConditionalBioList item={data.email}>
                 <h3>Email</h3>
                 <p>{data.email}</p>
-              </BioListContent>
-              <BioListContent item={data.twitter_username}>
+              </ConditionalBioList>
+              <ConditionalBioList item={data.twitter_username}>
                 <h3>Twitter</h3>
                 <CoolLink
                   href={`https://twitter.com/${data.twitter_username}`}
@@ -81,26 +81,26 @@ const Bio = (props) => {
                 >
                   @{data.twitter_username}
                 </CoolLink>
-              </BioListContent>
-              <BioListContent item={data.following}>
+              </ConditionalBioList>
+              <BioList>
                 <h3>Following</h3>
                 <p>{numberFormatter(data.following)}</p>
-              </BioListContent>
-              <BioListContent item={data.followers}>
+              </BioList>
+              <BioList>
                 <h3>Followers</h3>
                 <p>{numberFormatter(data.followers)}</p>
-              </BioListContent>
-              <BioListContent item={data.public_repos}>
+              </BioList>
+              <BioList>
                 <h3>Repos</h3>
                 <p>{numberFormatter(data.public_repos)}</p>
-              </BioListContent>
-              <BioListContent item={data.public_gists}>
+              </BioList>
+              <BioList>
                 <h3>Gists</h3>
                 <p>{numberFormatter(data.public_gists)}</p>
-              </BioListContent>
-              <BioListContent type="footer" item={data.created_at}>
+              </BioList>
+              <BioList type="footer">
                 <p>GitHub member since {getCreatedYear(data.created_at)}</p>
-              </BioListContent>
+              </BioList>
             </BioListWrapper>
           ),
         }[isLoading]
