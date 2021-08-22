@@ -67,7 +67,7 @@ const Home = (props) => {
               GitHub Profile Viewer
             </IntroTitle>
             <IntroCopy>
-              A simpler way to display your GitHub profile and repositories.
+              A simpler way to show your GitHub profile and repositories.
             </IntroCopy>
             <IntroForms
               onSubmit={viewClickHandler}
