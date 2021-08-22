@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${style.hsl('navy', 96)};
+    min-width: 320px;
   }
 
   mark {
