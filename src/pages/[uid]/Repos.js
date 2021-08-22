@@ -10,6 +10,7 @@ import {
   RepoStatsContent,
   ReposSkeleton,
 } from "./Repos.styled"
+import NoRepos from "./NoRepos"
 import CoolLink from "/src/components/CoolLink"
 import LangIcon from "/src/components/LangIcon"
 
@@ -19,8 +20,26 @@ import IconFork from "/src/assets/icons-general/icon_fork.svg"
 import IconIssue from "/src/assets/icons-general/icon_issue.svg"
 
 const Repos = (props) => {
-  const { data, sortBy, forkedDisplay, archivedDisplay, searchTerm, isLoading } =
-    props
+  const {
+    data,
+    sortBy,
+    forkedDisplay,
+    archivedDisplay,
+    searchTerm,
+    isLoading,
+  } = props
+
+  let status = "loading"
+
+  if (isLoading) {
+    status = "loading"
+  } else {
+    if (data.length > 0) {
+      status = "loaded"
+    } else {
+      status = "no repo"
+    }
+  }
 
   const sortedData = data.sort(function (a, b) {
     let result = null
@@ -51,8 +70,8 @@ const Repos = (props) => {
     <>
       {
         {
-          true: <ReposSkeleton />,
-          false: (
+          loading: <ReposSkeleton />,
+          loaded: (
             <ReposWrapper>
               {sortedData
                 .filter((r) => {
@@ -135,7 +154,8 @@ const Repos = (props) => {
                 })}
             </ReposWrapper>
           ),
-        }[isLoading]
+          "no repo": <NoRepos />,
+        }[status]
       }
     </>
   )
