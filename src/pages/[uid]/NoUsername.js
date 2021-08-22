@@ -5,8 +5,9 @@ import * as style from "/styles/style"
 import { sectionStyle, InputText } from "/styles/styled-elements"
 
 const CenterOuter = styled.main`
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   min-height: 100vh;
 `
 const CenterContainer = styled.section`
@@ -14,6 +15,7 @@ const CenterContainer = styled.section`
   width: 100%;
   max-width: 480px;
   padding: 48px;
+  margin-top: 12vh;
   font-size: ${style.fontSize.xl};
 
   span {

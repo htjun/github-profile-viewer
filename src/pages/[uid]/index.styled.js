@@ -2,6 +2,11 @@ import styled from "styled-components"
 import { sectionStyle } from "/styles/styled-elements"
 import * as style from "/styles/style"
 
+export const PageWrapper = styled.div`
+  background: ${style.hsl('navy', 96)};
+  min-height: 100vh;
+`
+
 export const Layout = styled.div`
   display: flex;
   align-items: flex-start;
