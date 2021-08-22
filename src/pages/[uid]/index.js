@@ -2,11 +2,12 @@ import { useState } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
-import Bio from "./Bio"
+import { Layout, RepoContainer } from "./index.styled"
 import FilterBar from "./FilterBar"
+import Bio from "./Bio"
 import Repos from "./Repos"
 import NoUsername from "./NoUsername"
-import { Layout, RepoContainer } from "./index.styled"
+import NavBar from "./NavBar"
 
 const Page = () => {
   const router = useRouter()
@@ -19,6 +20,7 @@ const Page = () => {
 
   return (
     <>
+    <NavBar />
       {
         {
           true: <NoUsername />,

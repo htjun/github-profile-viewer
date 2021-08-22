@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import * as style from "/styles/style"
 
-const inputStyle = css`
+export const inputStyle = css`
   height: 36px;
   padding: 4px 12px;
   font-size: ${style.fontSize.sm};
@@ -18,6 +18,27 @@ const inputStyle = css`
   &:focus {
     border-color: ${style.hsl("blue", 64)};
     box-shadow: 0 0 0 1px ${style.hsl("blue", 64)};
+  }
+`
+
+export const darkInputStyle = css`
+  ${inputStyle};
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid transparent;
+  box-shadow: none;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  &:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px ${style.hsl("blue", 72)};
   }
 `
 

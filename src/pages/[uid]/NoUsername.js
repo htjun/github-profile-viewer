@@ -48,7 +48,7 @@ const SearchInput = styled(InputText)`
   font-size: ${style.fontSize.base};
 `
 
-const NoUsername = (props) => {
+const NoUsername = () => {
   const router = useRouter()
   const { uid } = router.query
   const [searchUsername, setSearchUsername] = useState("")
