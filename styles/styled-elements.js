@@ -58,7 +58,7 @@ export const SkeletonBlock = styled.div`
     radial-gradient(38px circle at 19px 19px, #e8eaed 50%, transparent 51%),
     linear-gradient(#e8eaed, #e8eaed);
   background-repeat: no-repeat;
-  background-size: 500px 250px, 500px 180px, 100px 100px, 225px 30px;
+  background-size: 100% 250px, 100% 180px, 100px 100px, 225px 30px;
   background-position: -500px 0, 0 0, 0px 190px, 50px 195px;
   animation: loading 1.5s infinite;
 
