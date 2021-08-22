@@ -5,7 +5,10 @@ import * as style from "/src/styles/style"
 export const PageWrapper = styled.div`
   background: ${style.hsl('navy', 96)};
   min-height: 100vh;
-  overflow-x: hidden;
+
+  @media ${style.deviceSize.tablet} {
+    overflow-x: hidden;
+  }
 `
 
 export const Layout = styled.div`
