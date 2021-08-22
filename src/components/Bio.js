@@ -1,6 +1,6 @@
 import CoolLink from "/src/components/CoolLink"
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
-import { BioListWrapper, BioList, BioAvatar, BioSkeleton } from "./Bio.styled"
+import { BioListWrapper, BioList, BioAvatar, BioSkeleton } from "../styles/Bio.styled"
 
 const ConditionalBioList = (props) => {
   if (props.item) {

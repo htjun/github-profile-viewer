@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { createGlobalStyle } from "styled-components"
-import * as style from "/styles/style"
+import * as style from "/src/styles/style"
 
 export const GlobalStyle = createGlobalStyle`
   * {

@@ -15,7 +15,7 @@ import {
   Credit,
   ApiRate,
   BgBall
-} from "./index.styled"
+} from "/src/styles/index.styled"
 
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 

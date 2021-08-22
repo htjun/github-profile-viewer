@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { sectionStyle } from "/styles/styled-elements"
-import * as style from "/styles/style"
+import { sectionStyle } from "/src/styles/styled-elements"
+import * as style from "/src/styles/style"
 
 export const PageWrapper = styled.div`
   background: ${style.hsl('navy', 96)};

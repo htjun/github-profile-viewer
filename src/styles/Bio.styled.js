@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
-import * as style from "/styles/style"
-import { sectionStyle, SkeletonBlock } from "/styles/styled-elements"
+import * as style from "/src/styles/style"
+import { sectionStyle, SkeletonBlock } from "/src/styles/styled-elements"
 
 export const BioListWrapper = styled.ul`
   ${sectionStyle};

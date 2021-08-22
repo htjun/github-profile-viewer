@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import * as style from "/styles/style"
+import * as style from "/src/styles/style"
 
 const TabsWrapper = styled.ul`
   display: flex;

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import * as style from "/styles/style"
+import * as style from "/src/styles/style"
 
 export const IntroOuter = styled.div`
   /* background-color: ${style.hsl("blue", 12)}; */

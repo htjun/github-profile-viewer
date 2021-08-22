@@ -1,8 +1,8 @@
 import reactStringReplace from "react-string-replace"
 import styled from "styled-components"
-import * as style from "/styles/style"
+import * as style from "/src/styles/style"
 import CoolLink from "/src/components/CoolLink"
-import { SkeletonBlock } from "/styles/styled-elements"
+import { SkeletonBlock } from "/src/styles/styled-elements"
 
 export const ReposWrapper = styled.ul`
   width: 100%;

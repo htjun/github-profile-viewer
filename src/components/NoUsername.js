@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
 import styled from "styled-components"
-import * as style from "/styles/style"
-import { sectionStyle, InputText } from "/styles/styled-elements"
+import * as style from "/src/styles/style"
+import { sectionStyle, InputText } from "/src/styles/styled-elements"
 
 const CenterOuter = styled.main`
   display: flex;

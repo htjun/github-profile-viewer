@@ -2,12 +2,12 @@ import { useState } from "react"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import useProfile from "/src/hooks/useProfile"
-import { PageWrapper, Layout, RepoContainer } from "./index.styled"
-import FilterBar from "./FilterBar"
-import Bio from "./Bio"
-import Repos from "./Repos"
-import NoUsername from "./NoUsername"
-import NavBar from "./NavBar"
+import { PageWrapper, Layout, RepoContainer } from "../../styles/uidIndex.styled"
+import FilterBar from "../../components/FilterBar"
+import Bio from "../../components/Bio"
+import Repos from "../../components/Repos"
+import NoUsername from "../../components/NoUsername"
+import NavBar from "../../components/NavBar"
 
 const Page = () => {
   const router = useRouter()

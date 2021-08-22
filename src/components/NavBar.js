@@ -2,8 +2,8 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import styled from "styled-components"
-import * as style from "/styles/style"
-import { darkInputStyle } from "/styles/styled-elements"
+import * as style from "/src/styles/style"
+import { darkInputStyle } from "/src/styles/styled-elements"
 
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 

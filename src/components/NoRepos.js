@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import * as style from "/styles/style"
-import { sectionStyle } from "/styles/styled-elements"
-import { ReposWrapper } from "./Repos.styled"
+import * as style from "/src/styles/style"
+import { sectionStyle } from "/src/styles/styled-elements"
+import { ReposWrapper } from "../styles/Repos.styled"
 
 const NoRepoWrapper = styled(ReposWrapper)`
   display: grid;

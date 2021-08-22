@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styled, { css } from "styled-components"
-import * as style from "/styles/style"
-import { InputText } from "/styles/styled-elements"
+import * as style from "/src/styles/style"
+import { InputText } from "/src/styles/styled-elements"
 import Dropdown from "/src/components/Dropdown"
 import Checkbox from "/src/components/Checkbox"
 

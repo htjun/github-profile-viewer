@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import { Button } from "/styles/styled-elements"
-import * as style from "/styles/style"
+import { Button } from "/src/styles/styled-elements"
+import * as style from "/src/styles/style"
 
 import IconChevronDown from "/src/assets/icons-general/icon_chevron-down.svg"
 

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import * as style from "/styles/style"
+import * as style from "/src/styles/style"
 import IconArrowRightUp from "/src/assets/icons-general/icon_arrow-right-up.svg"
 
 const LinkWrapper = styled.div`

@@ -9,7 +9,7 @@ import {
   RepoStats,
   RepoStatsContent,
   ReposSkeleton,
-} from "./Repos.styled"
+} from "../styles/Repos.styled"
 import NoRepos from "./NoRepos"
 import CoolLink from "/src/components/CoolLink"
 import LangIcon from "/src/components/LangIcon"
