@@ -1,5 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import * as style from '/styles/style'
+import Head from "next/head"
+import { createGlobalStyle } from "styled-components"
+import * as style from "/styles/style"
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -7,11 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     ::selection {
-      background: ${style.hsl('blue', 64)};
+      background: ${style.hsl("blue", 64)};
       color: #fff;
     }
     ::-moz-selection {
-      background: ${style.hsl('blue', 64)};
+      background: ${style.hsl("blue", 64)};
       color: #fff;
     }
   }
@@ -21,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: ${style.fontSize.base};
     line-height: ${style.textLineHeight.normal};
     letter-spacing: ${style.textLetterSpacing.normal};
-    color: ${style.hsl('grey', 8)};
+    color: ${style.hsl("grey", 8)};
   }
 
   body {
@@ -30,16 +31,23 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   mark {
-    background-color: ${style.hsl('cyan', 92)};
+    background-color: ${style.hsl("cyan", 92)};
   }
 `
 
 function MyApp({ Component, pageProps }) {
   return (
-  <>
-    <GlobalStyle />
-    <Component {...pageProps} />
-  </>)
+    <>
+      <GlobalStyle />
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
 
 export default MyApp
