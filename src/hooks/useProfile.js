@@ -47,7 +47,6 @@ export default function useProfile(uid) {
                 error: false
             }))
           } else {
-            console.log(response)
             setStatus(prevState => ({
                 ...prevState,
                 error: true
