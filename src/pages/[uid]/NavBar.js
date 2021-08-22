@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { useRouter } from "next/router"
 import Link from "next/link"
 import styled from "styled-components"
 import * as style from "/styles/style"
@@ -49,9 +51,16 @@ const NavSearchInput = styled.input`
   ${darkInputStyle};
 `
 
-const NavLink = styled.a``
+const NavBar = (props) => {
+  const router = useRouter()
+  const [searchUsername, setSearchUsername] = useState("")
+  const { noUsername } = props
 
-const NavBar = () => {
+  const submitHandler = (e) => {
+    e.preventDefault()
+    router.push(`/${searchUsername}`)
+  }
+
   return (
     <NavBarWrapper>
       <NavBarContainer>
@@ -61,7 +70,18 @@ const NavBar = () => {
             <h1>GitHub Profile Viewer</h1>
           </NavBarTitle>
         </Link>
-        <NavSearchInput type="text" placeholder="Enter GitHub username.." />
+        {!noUsername && (
+          <form onSubmit={submitHandler}>
+            <NavSearchInput
+              type="text"
+              placeholder="Enter GitHub username.."
+              name="search"
+              onChange={(e) => {
+                setSearchUsername(e.target.value)
+              }}
+            />
+          </form>
+        )}
       </NavBarContainer>
     </NavBarWrapper>
   )

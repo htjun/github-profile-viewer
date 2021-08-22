@@ -20,7 +20,7 @@ const Page = () => {
 
   return (
     <PageWrapper>
-    <NavBar />
+    <NavBar noUsername={status.error} />
       {
         {
           true: <NoUsername />,
