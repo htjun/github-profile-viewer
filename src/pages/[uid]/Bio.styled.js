@@ -27,8 +27,6 @@ export const BioListWrapper = styled.ul`
       `
     }
   }}
-
-
 `
 
 export const BioList = styled.li`
@@ -90,11 +88,6 @@ export const BioList = styled.li`
         flex-direction: column;
       }
 
-      img.avatar {
-        width: 100%;
-        height: 100%;
-      }
-
       .identifier {
         width: 100%;
 
@@ -133,16 +126,16 @@ export const BioList = styled.li`
     `}
 
   ${(props) =>
-  props.type === "footer" &&
-  css`
-    display: block;
-    padding: 24px;
-    color: ${style.hsl("neutral", 48)};
+    props.type === "footer" &&
+    css`
+      display: block;
+      padding: 24px;
+      color: ${style.hsl("neutral", 48)};
 
-    @media ${style.deviceSize.landscape} {
-      padding: 24px 18px;
-    }
-  `}
+      @media ${style.deviceSize.landscape} {
+        padding: 24px 18px;
+      }
+    `}
 `
 export const BioAvatar = styled.div`
   width: 60px;
@@ -153,47 +146,82 @@ export const BioAvatar = styled.div`
   background-color: ${style.hsl("neutral", 92)};
   overflow: hidden;
 
+  img {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+  }
+
+  ${(props) =>
+    props.item &&
+    css`
+      img {
+        visibility: visible;
+      }
+    `}
+
   @media ${style.deviceSize.landscape} {
     margin-right: 0;
+  }
+`
+
+const BioListSkeleton = styled(BioList)`
+  ${(props) =>
+    props.type === "header" &&
+    css`
+      @media ${style.deviceSize.landscape} {
+        .identifier {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 20px;
+        }
+      }
+    `}
+
+  @media ${style.deviceSize.landscape} {
+    .skeleton {
+      margin-bottom: 4px;
+    }
   }
 `
 
 export const BioSkeleton = () => {
   return (
     <BioListWrapper isWebsite={true}>
-      <BioList type="header">
+      <BioListSkeleton type="header">
         <BioAvatar />
         <div className="identifier">
           <SkeletonBlock width="80" height="25" bottom="6" />
           <SkeletonBlock width="40" height="17" />
         </div>
-      </BioList>
+      </BioListSkeleton>
       <BioList type="single-col">
         <SkeletonBlock height="60" />
       </BioList>
-      <BioList>
-        <SkeletonBlock width="30" height="21" right="20" />
-        <SkeletonBlock width="50" height="21" />
-      </BioList>
-      <BioList>
-        <SkeletonBlock width="30" height="21" right="20" />
-        <SkeletonBlock width="50" height="21" />
-      </BioList>
-      <BioList>
-        <SkeletonBlock width="30" height="21" right="20" />
-        <SkeletonBlock width="50" height="21" />
-      </BioList>
-      <BioList>
-        <SkeletonBlock width="30" height="21" right="20" />
-        <SkeletonBlock width="50" height="21" />
-      </BioList>
-      <BioList>
-        <SkeletonBlock width="30" height="21" right="20" />
-        <SkeletonBlock width="50" height="21" />
-      </BioList>
-      <BioList>
+      <BioListSkeleton>
+        <SkeletonBlock width="30" height="21" right="20" className="skeleton" />
+        <SkeletonBlock width="50" height="21" className="skeleton" />
+      </BioListSkeleton>
+      <BioListSkeleton>
+        <SkeletonBlock width="30" height="21" right="20" className="skeleton" />
+        <SkeletonBlock width="50" height="21" className="skeleton" />
+      </BioListSkeleton>
+      <BioListSkeleton>
+        <SkeletonBlock width="30" height="21" right="20" className="skeleton" />
+        <SkeletonBlock width="50" height="21" className="skeleton" />
+      </BioListSkeleton>
+      <BioListSkeleton>
+        <SkeletonBlock width="30" height="21" right="20" className="skeleton" />
+        <SkeletonBlock width="50" height="21" className="skeleton" />
+      </BioListSkeleton>
+      <BioListSkeleton>
+        <SkeletonBlock width="30" height="21" right="20" className="skeleton" />
+        <SkeletonBlock width="50" height="21" className="skeleton" />
+      </BioListSkeleton>
+      <BioListSkeleton>
         <SkeletonBlock height="21" />
-      </BioList>
+      </BioListSkeleton>
     </BioListWrapper>
   )
 }

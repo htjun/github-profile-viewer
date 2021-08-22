@@ -34,7 +34,7 @@ const Bio = (props) => {
               isEmail={data.email ? true : false}
             >
               <BioList type="header">
-                <BioAvatar>
+                <BioAvatar item={data.avatar_url}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={data.avatar_url}
