@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${style.hsl("navy", 16)};
-    min-width: ${style.deviceSize.tiny};
+    min-width: 320px;
   }
 
   mark {

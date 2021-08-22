@@ -44,11 +44,26 @@ const NavBarTitle = styled.a`
     margin-right: 10px;
     fill: currentColor;
   }
+
+  h1 {
+    @media ${style.deviceSize.mobile} {
+      display: none;
+    }
+  }
+`
+
+const NavSearchForm = styled.form`
+  width: 100%;
+  max-width: 240px;
+  @media ${style.deviceSize.mobile} {
+    max-width: 100%;
+    margin-left: 24px;
+  }
 `
 
 const NavSearchInput = styled.input`
-  min-width: 240px;
   ${darkInputStyle};
+  width: 100%;
 `
 
 const NavBar = (props) => {
@@ -71,7 +86,7 @@ const NavBar = (props) => {
           </NavBarTitle>
         </Link>
         {!noUsername && (
-          <form onSubmit={submitHandler}>
+          <NavSearchForm onSubmit={submitHandler}>
             <NavSearchInput
               type="text"
               placeholder="Enter GitHub username.."
@@ -80,7 +95,7 @@ const NavBar = (props) => {
                 setSearchUsername(e.target.value)
               }}
             />
-          </form>
+          </NavSearchForm>
         )}
       </NavBarContainer>
     </NavBarWrapper>
