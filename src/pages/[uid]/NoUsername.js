@@ -5,9 +5,8 @@ import * as style from "/styles/style"
 import { sectionStyle, InputText } from "/styles/styled-elements"
 
 const CenterOuter = styled.main`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
   min-height: 100vh;
 `
 const CenterContainer = styled.section`
