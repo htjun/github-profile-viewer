@@ -74,6 +74,8 @@ const NavBar = (props) => {
   const submitHandler = (e) => {
     e.preventDefault()
     router.push(`/${searchUsername}`)
+    setSearchUsername("")
+    e.target.childNodes[0].blur()
   }
 
   return (
@@ -91,6 +93,7 @@ const NavBar = (props) => {
               type="text"
               placeholder="Enter GitHub username.."
               name="search"
+              value={searchUsername}
               onChange={(e) => {
                 setSearchUsername(e.target.value)
               }}
