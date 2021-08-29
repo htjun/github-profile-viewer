@@ -13,15 +13,16 @@ const ConditionalBioList = (props) => {
 const Bio = (props) => {
   const { data, isLoading } = props
 
-  function getCreatedYear(date) {
+  const getCreatedYear = (date) => {
     const year = new Date(date).getFullYear()
     return year
   }
 
-  function numberFormatter(number) {
+  const numberFormatter = (number) => {
     const formattedNumber = number ? number.toLocaleString("en-US") : number
     return formattedNumber
   }
+
 
   return (
     <>
