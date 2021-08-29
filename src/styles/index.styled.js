@@ -171,6 +171,12 @@ export const Credit = styled.cite`
   font-weight: ${style.fontWeight.semibold};
   font-style: normal;
   color: ${style.hsl("navy", 32)};
+  cursor: pointer;
+  transition: color 0.08s linear;
+
+  &:hover {
+    color: ${style.hsl("navy", 48)};
+  }
 
   @media ${style.deviceSize.tablet} {
     margin-bottom: 16px;

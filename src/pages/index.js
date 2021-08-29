@@ -54,6 +54,12 @@ const Home = (props) => {
     getProfile()
   }
 
+  const handleCreditClick = (e) => {
+    e.preventDefault()
+    console.log("click")
+    setUserId("htjun")
+  }
+
   return (
     <>
       <Head>
@@ -100,7 +106,7 @@ const Home = (props) => {
             <UsernameSuggestions setUserId={setUserId} />
           </div>
           <IntroFooter>
-            <Credit>Created by Jason Jun</Credit>
+            <Credit onClick={handleCreditClick}>Created by Jason Jun</Credit>
             <ApiRate>
               API rate: {props.apiLimit.rate.remaining} /{" "}
               {props.apiLimit.rate.limit}
