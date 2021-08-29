@@ -6,7 +6,7 @@ const UsernameSuggestionsWrapper = styled.div`
   width: 100%;
   animation-name: fadein;
   animation-duration: 0.8s;
-  animation-delay: 1.8s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
   opacity: 0;
 
