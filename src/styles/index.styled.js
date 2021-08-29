@@ -53,7 +53,8 @@ export const IntroCopy = styled.h2`
 
 export const IntroForms = styled.form`
   max-width: 480px;
-  margin-bottom: 96px;
+  margin-bottom: 48px;
+  margin-bottom: clamp(32px, 8vh, 72px); ;
 
   &.error {
     .username {
@@ -157,9 +158,11 @@ export const IntroFooter = styled.footer`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-top: 64px;
 
   @media ${style.deviceSize.tablet} {
     flex-direction: column;
+    margin-top: 48px;
   }
 `
 

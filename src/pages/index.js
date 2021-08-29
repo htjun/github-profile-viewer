@@ -16,7 +16,7 @@ import {
   ApiRate,
   BgBall
 } from "/src/styles/index.styled"
-
+import UsernameSuggestions from '/src/components/UsernameSuggestions'
 import IconGitHub from "/src/assets/icons-general/icon_github.svg"
 
 const GITHUB_PROFILE_BASE_URI = "https://api.github.com/users/"
@@ -97,6 +97,7 @@ const Home = (props) => {
                 </IntroErrorMessage>
               )}
             </IntroForms>
+            <UsernameSuggestions setUserId={setUserId} />
           </div>
           <IntroFooter>
             <Credit>Created by Jason Jun</Credit>
