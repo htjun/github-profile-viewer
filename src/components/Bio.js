@@ -23,6 +23,13 @@ const Bio = (props) => {
     return formattedNumber
   }
 
+  const linkFormatter = (url) => {
+    if (url && url.slice(0,4) !== "http") {
+      return `https://${url}`
+    } else {
+      return url
+    }
+  }
 
   return (
     <>
@@ -66,8 +73,8 @@ const Bio = (props) => {
               </ConditionalBioList>
               <ConditionalBioList item={data.blog}>
                 <h3>Website</h3>
-                <CoolLink href={data.blog} target="_blank">
-                  {data.blog}
+                <CoolLink href={linkFormatter(data.blog)} target="_blank">
+                  {linkFormatter(data.blog)}
                 </CoolLink>
               </ConditionalBioList>
               <ConditionalBioList item={data.email}>
