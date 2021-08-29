@@ -5,10 +5,13 @@ import IconAssembly from "/src/assets/icons-lang/assembly.svg"
 import IconAzure from "/src/assets/icons-lang/azure.svg"
 import IconC from "/src/assets/icons-lang/c.svg"
 import IconCobol from "/src/assets/icons-lang/cobol.svg"
+import IconCoffeeScript from "/src/assets/icons-lang/coffeescript.svg"
 import IconCPP from "/src/assets/icons-lang/cpp.svg"
 import IconCSharp from "/src/assets/icons-lang/csharp.svg"
 import IconCSS from "/src/assets/icons-lang/css.svg"
+import IconDart from "/src/assets/icons-lang/dart.svg"
 import IconDelphi from "/src/assets/icons-lang/delphi.svg"
+import IconDocker from "/src/assets/icons-lang/docker.svg"
 import IconFlutter from "/src/assets/icons-lang/flutter.svg"
 import IconFortran from "/src/assets/icons-lang/fortran.svg"
 import IconGo from "/src/assets/icons-lang/go.svg"
@@ -17,6 +20,7 @@ import IconJava from "/src/assets/icons-lang/java.svg"
 import IconJavaScript from "/src/assets/icons-lang/javascript.svg"
 import IconMakefile from "/src/assets/icons-lang/makefile.svg"
 import IconMongo from "/src/assets/icons-lang/mongo.svg"
+import IconMustache from "/src/assets/icons-lang/mustache.svg"
 import IconMySQL from "/src/assets/icons-lang/mysql.svg"
 import IconNode from "/src/assets/icons-lang/node.svg"
 import IconObjectiveC from "/src/assets/icons-lang/objectivec.svg"
@@ -24,8 +28,10 @@ import IconPerl from "/src/assets/icons-lang/perl.svg"
 import IconPHP from "/src/assets/icons-lang/php.svg"
 import IconPython from "/src/assets/icons-lang/python.svg"
 import IconRuby from "/src/assets/icons-lang/ruby.svg"
+import IconRust from "/src/assets/icons-lang/rust.svg"
 import IconScala from "/src/assets/icons-lang/scala.svg"
 import IconShell from "/src/assets/icons-lang/shell.svg"
+import IconSmarty from "/src/assets/icons-lang/smarty.svg"
 import IconSolidity from "/src/assets/icons-lang/solidity.svg"
 import IconSvelte from "/src/assets/icons-lang/svelte.svg"
 import IconSwift from "/src/assets/icons-lang/swift.svg"
@@ -45,10 +51,13 @@ const LangIcon = (props) => {
           Azure: <IconAzure />,
           C: <IconC />,
           Cobol: <IconCobol />,
+          CoffeeScript: <IconCoffeeScript />,
           "C++": <IconCPP />,
           "C#": <IconCSharp />,
           CSS: <IconCSS />,
+          Dart: <IconDart />,
           Delphi: <IconDelphi />,
+          Dockerfile: <IconDocker />,
           Flutter: <IconFlutter />,
           Fortran: <IconFortran />,
           Go: <IconGo />,
@@ -57,6 +66,7 @@ const LangIcon = (props) => {
           JavaScript: <IconJavaScript />,
           Makefile: <IconMakefile />,
           Mongo: <IconMongo />,
+          Mustache: <IconMustache />,
           MySQL: <IconMySQL />,
           Node: <IconNode />,
           "Objective-C": <IconObjectiveC />,
@@ -64,8 +74,10 @@ const LangIcon = (props) => {
           PHP: <IconPHP />,
           Python: <IconPython />,
           Ruby: <IconRuby />,
+          Rust: <IconRust />,
           Scala: <IconScala />,
           Shell: <IconShell />,
+          Smarty: <IconSmarty />,
           Solidity: <IconSolidity />,
           Svelte: <IconSvelte />,
           Swift: <IconSwift />,
