@@ -8,6 +8,7 @@ import Bio from "../../components/Bio"
 import Repos from "../../components/Repos"
 import NoUsername from "../../components/NoUsername"
 import NavBar from "../../components/NavBar"
+import BackToTopBtn from '/src/components/BackToTopBtn'
 
 const Page = () => {
   const router = useRouter()
@@ -55,6 +56,7 @@ const Page = () => {
                     isLoading={status.reposLoading}
                   />
                 </RepoContainer>
+                <BackToTopBtn />
               </Layout>
             </>
           ),
