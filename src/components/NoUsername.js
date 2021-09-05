@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/router"
 import styled from "styled-components"
 import * as style from "/src/styles/style"
@@ -54,11 +54,16 @@ const NoUsername = () => {
   const router = useRouter()
   const { uid } = router.query
   const [searchUsername, setSearchUsername] = useState("")
+  const inputRef = useRef(null)
 
   const submitHandler = (e) => {
     e.preventDefault()
     router.push(`/${searchUsername}`)
   }
+
+  useEffect(() => {
+    inputRef.current.focus()
+  }, [])
 
   return (
     <>
@@ -71,6 +76,7 @@ const NoUsername = () => {
             <label htmlFor="search">Try another username</label>
             <SearchInput
               name="search"
+              ref={inputRef}
               onChange={(e) => {
                 setSearchUsername(e.target.value)
               }}
