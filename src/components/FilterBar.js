@@ -147,6 +147,7 @@ const FilterBar = (props) => {
         <SearchInput
           type="text"
           placeholder="Search repository.."
+          aria-labelledby="repository name"
           value={searchTerm}
           onChange={(e) => {
             setSearchTerm(e.target.value)

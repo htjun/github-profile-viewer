@@ -93,6 +93,7 @@ const NavBar = (props) => {
               type="text"
               placeholder="Enter GitHub username.."
               name="search"
+              aria-labelledby="username"
               value={searchUsername}
               onChange={(e) => {
                 setSearchUsername(e.target.value)

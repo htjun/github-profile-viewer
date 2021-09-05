@@ -84,6 +84,7 @@ const Home = (props) => {
                   type="text"
                   value={userId}
                   placeholder="Enter a GitHub username.."
+                  aria-labelledby="username"
                   onChange={textInputHandler}
                   className={`username ${userId ? "active" : null}`}
                   required
